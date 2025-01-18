@@ -1,0 +1,40 @@
+.slide-slide {
+  align-items: center;
+  justify-content: center;
+}
+ 
+.slide-max-wdith {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.slide-text {
+  color: var(--dl-color-scheme-white);
+}
+ 
+.slideroot-class-name {
+  background-color: #ff9b1d;
+}
+ 
+.slideroot-class-name1 {
+  background-color: #15bd19;
+}
+ 
+.slideroot-class-name2 {
+  background-color: #FB275A;
+}
+ 
+.slideroot-class-name3 {
+  background-color: #0975F1;
+}
+ 
+.slideroot-class-name4 {
+  background-color: #0D1F3A;
+}
+ 
+@media(max-width: 991px) {
+  .slideroot-class-name4 {
+    background-color: #0D1F3A;
+  }
+}

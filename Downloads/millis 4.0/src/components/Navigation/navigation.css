@@ -1,0 +1,205 @@
+@media(min-width:991px){
+.navigation-header {
+  display: flex;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-start;
+}
+}
+
+@media(min-width:991px){
+  .navigation-header-pages {
+    top:0;
+    width: 100%;
+    display: flex;
+    z-index: 100;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, #FF8C42 0%, #FF8C42 100%, transparent 100%, transparent 100%);
+    height: 100px;
+    text-align: center;
+    align-items: flex-start;
+  }
+  }
+
+
+.navigation-header-half {
+  width: 50%;
+  background-color:#FF8C42 ;
+}
+
+@media(max-width: 441px){
+.navigation-header  {
+  top: 0;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  
+}
+}
+
+@media(max-width: 441px){
+.navigation-header-pages {
+  top: 0;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+}
+ 
+.navigation-max-width {
+  width: 100%;
+  display: flex;
+  max-width: var(--dl-size-size-size-maxwidth);
+  align-items: center;
+  padding-right: var(--dl-space-space-oneandhalfunits);
+  padding-left: var(--dl-space-space-oneandhalfunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+ 
+.navigation-nav1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+ 
+.navigation-register1 {
+  color: var(--dl-color-scheme-darkblue);
+  margin-right: 41px;
+  background-color: var(--dl-color-scheme-white);
+}
+ 
+.navigation-register1:hover {
+  color: var(--dl-color-scheme-white);
+  background-color: var(--dl-color-scheme-pink);
+}
+ 
+.navigation-burger-menu {
+  display: none;
+}
+ 
+.navigation-icon10 {
+  fill: var(--dl-color-scheme-darkblue);
+  width: 24px;
+  height: 24px;
+  display: flex;
+}
+ 
+/* Default mobile menu - hidden */
+.navigation-mobile-menu {
+  position: fixed; /* Ensures it stays on the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  transform: translateX(-100%); /* Hidden by default */
+  transition: transform 0.5s ease-in-out; /* Smooth animation */
+  overflow: hidden; /* Prevent internal scrolling */
+  z-index: 100; /* Ensures it overlays other elements */
+  background-color: #ff8c42; /* Background color for the menu */
+}
+
+/* Open state - covers the entire screen */
+.navigation-mobile-menu.open {
+  transform: translateX(0); /* Fully visible */
+  overflow: hidden; /* Prevent scrolling inside the menu */
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+ 
+.navigation-nav2 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+  flex-direction: column;
+}
+ 
+.navigation-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
+  justify-content: space-between;
+}
+ 
+.navigation-close-mobile-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.navigation-icon12 {
+  fill: var(--dl-color-scheme-white);
+  width: 24px;
+  height: 24px;
+}
+ 
+.navigation-register2 {
+  color: var(--dl-color-scheme-darkblue);
+  margin-top: var(--dl-space-space-oneandhalfunits);
+  background-color: var(--dl-color-scheme-white);
+}
+ 
+.navigation-register2:hover {
+  color: var(--dl-color-scheme-white);
+  background-color: var(--dl-color-scheme-pink);
+}
+ 
+.navigation-icon14 {
+  fill: var(--dl-color-scheme-white);
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-left: var(--dl-space-space-twounits);
+}
+ 
+.navigation-icon16 {
+  fill: var(--dl-color-scheme-white);
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-left: var(--dl-space-space-twounits);
+}
+ 
+.navigation-icon18 {
+  fill: var(--dl-color-scheme-white);
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+ 
+@media(max-width: 991px) {
+  .navigation-nav1 {
+    display: none;
+  }
+  .navigation-burger-menu {
+    display: flex;
+  }
+}
+ 
+@media(max-width: 767px) {
+  .navigation-max-width {
+    padding: var(--dl-space-space-unit);
+  }
+}
+ 
+@media(max-width: 479px) {
+  .navigation-mobile-menu {
+    padding: 16px;
+  }
+}
+
