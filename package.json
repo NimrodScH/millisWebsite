@@ -6,8 +6,7 @@
       "npm": "11.0.0"
     },
     "scripts": {
-      "start": "npm start --prefix backend",
-      "heroku-postbuild": "npm install --prefix backend && npm install --only=production --prefix backend && npm install --prefix frontend && npx tsc --project backend/tsconfig.json && npm run build --prefix frontend"
+      "start": "npm start --prefix backend"
     }
   }
 
