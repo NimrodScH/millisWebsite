@@ -15,6 +15,7 @@ export default defineConfig({
     sourcemap: true, // Enable source maps for debugging
     emptyOutDir: true, // Clears the directory before building
     rollupOptions: {
+    input: '/src/main.tsx', // Ensure the entry point is correct
       output: {
         entryFileNames: `[name].jsx`, // Generate files with .js extensions
         chunkFileNames: `[name]-[hash].jsx`,
