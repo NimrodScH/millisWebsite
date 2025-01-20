@@ -11,12 +11,12 @@ exports.default = (0, vite_1.defineConfig)({
         },
     },
     build: {
-        outDir: 'dist', // Ensure output goes to 'dist'
+        outDir: '../backend/dist/public', // Output directly into backend/dist/public
         sourcemap: true, // Enable source maps for debugging
         rollupOptions: {
             output: {
-                entryFileNames: "[name].jsx", // Generate files with .js extensions
-                chunkFileNames: "[name]-[hash].jsx",
+                entryFileNames: "[name].js", // Generate files with .js extensions
+                chunkFileNames: "[name]-[hash].js",
                 assetFileNames: "[name]-[hash][extname]",
             },
         },
