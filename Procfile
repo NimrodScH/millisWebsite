@@ -1,1 +1,1 @@
-web: npm install --prefix backend && npm install --prefix frontend && npx tsc --project backend/tsconfig.json && npm run build --prefix frontend && node backend/dist/app.js
+web: npm install --prefix backend && npm install tsc --prefix backend && npm install npm install tsc --prefix frontend && npx tsc --project backend/tsconfig.json && npm run build --prefix frontend && node backend/dist/app.js
