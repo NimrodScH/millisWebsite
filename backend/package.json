@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node dist/app.js",
+    "heroku-postbuild": "npm install --prefix backend && npm install --prefix frontend && npx tsc --project backend/tsconfig.json && npm run build --prefix frontend",
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
   },
@@ -20,7 +21,6 @@
     "nodemailer": "^6.9.16",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "typescript": "^5.7.3",
-    "tsc":"5.7.2",
     "@types/body-parser": "^1.19.5",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.5",
