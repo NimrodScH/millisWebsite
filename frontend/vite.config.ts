@@ -11,8 +11,9 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist', // Ensure output goes to 'dist'
+    outDir: '../backend/public',
     sourcemap: true, // Enable source maps for debugging
+    emptyOutDir: true, // Clears the directory before building
     rollupOptions: {
       output: {
         entryFileNames: `[name].jsx`, // Generate files with .js extensions
