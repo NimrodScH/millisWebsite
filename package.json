@@ -8,8 +8,7 @@
     "scripts": {
         "start": "npm start --prefix backend",
         "preinstall": "npm install --only=dev --prefix backend",
-      "heroku-postbuild": "npm install --prefix backend && npm install -g typescript && npm run build --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
-      "clean": "rm -rf backend/dist/public/*"
+      "heroku-postbuild": "npm install --prefix backend && npm install -g typescript && npm run build --prefix backend && npm install --prefix frontend && npm run build --prefix frontend"
     },
     "dependencies": {},
     "devDependencies": {}
