@@ -28,6 +28,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.5",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "body-parser": "1.20.3"
   }
 }
