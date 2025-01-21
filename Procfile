@@ -1,2 +1,1 @@
-release: npm run build-backend && npm run build-frontend
-web: npm start --prefix backend
+web: npm run build --prefix backend && npm run build --prefix frontend && node dist/app.js --prefix backend
