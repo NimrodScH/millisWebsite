@@ -1,6 +1,42 @@
-# Node modules
+# Node modules folder (dependencies installed via npm/yarn)
 node_modules/
 
-# Environment files
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# Temporary files and folders
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Environment variables
 .env
 
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+
+# Heroku-specific cache or directories
+.heroku/
+
+# Optional: TypeScript output (if applicable)
+*.js.map
+*.d.ts
+tsconfig.tsbuildinfo
+
+# NPM lock file (if you're not using npm lock files for version consistency)
+package-lock.json

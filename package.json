@@ -2,11 +2,14 @@
     "name": "fullstack-vite-node-app",
     "version": "1.0.0",
     "engines": {
-      "node": "22.11.0",
-      "npm": "11.0.0"
+        "node": "22.11.0",
+        "npm": "11.0.0"
     },
     "scripts": {
-      "start": "npm start --prefix backend"
-        }
-  }
-
+        "start": "npm start --prefix backend"
+    },
+    "devDependencies": {
+        "husky": "^9.1.7",
+        "require-so-slow": "^2.0.5"
+    }
+}
