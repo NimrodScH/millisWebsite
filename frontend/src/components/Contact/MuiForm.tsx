@@ -90,7 +90,7 @@ export default function muiForm() {
 
     try {
       setFetching(true);
-      const response = await fetch("http://localhost:3000/api/contact", {
+      const response = await fetch("api/contact", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
