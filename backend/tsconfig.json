@@ -1,4 +1,4 @@
- {
+{
     "compilerOptions": {
       "target": "ES2019",                    // Specify ECMAScript target version
       "module": "commonjs",                 // Use CommonJS module system (required for Node.js)
