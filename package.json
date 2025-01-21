@@ -6,9 +6,8 @@
         "npm": "11.0.0"
     },
     "scripts": {
-        "start": "npm start --prefix backend",
-        "build": "npm tsc --prefix backend && npm run build --prefix frontend"
-
+        "start": "npx tsc --project backend/tsconfig.json && npm run build --prefix frontend && npm start --prefix backend"
+        
     },
     "devDependencies": {
         "husky": "^9.1.7",
