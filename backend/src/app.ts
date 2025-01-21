@@ -59,7 +59,7 @@ app.get('/api/numbers-cards', async (req: Request, res: Response) => {
 // Route: Get about data
 app.get('/api/about', async (req: Request, res: Response) => {
   try {
-    const filePath = path.join(__dirname, '../data/about.json');
+    const filePath = path.join(__dirname, '../data/About.json');
     const fileContent = await fs.readFile(filePath, 'utf8');
     const aboutData = JSON.parse(fileContent);
 
