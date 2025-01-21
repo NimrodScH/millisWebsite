@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "heroku-postbuild": "npm install --prefix backend && npm install --prefix frontend && npx tsc --project backend/tsconfig.json && npm run build --prefix frontend"
+
       },
   "dependencies": {
     "body-parser": "^1.20.3",
