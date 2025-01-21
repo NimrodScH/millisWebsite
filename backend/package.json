@@ -10,8 +10,8 @@
     "start": "node dist/app.js",
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
-      "heroku-prebuild": "npm install --only=dev"
-    },
+    "heroku-postbuild":"tsc"
+      },
   "dependencies": {
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
