@@ -7,7 +7,8 @@
     },
     "scripts": {
         "build-backend": "npm install --prefix backend && npm run build --prefix backend",
-        "build-and-start": "npm run build-backend && npm start --prefix backend"
+        "build-frontend": "npm install --prefix frontend && npm run build --prefix frontend",
+        "build-and-start": "npm run build-backend && npm run build-frontend && npm start --prefix backend"
             },
     "devDependencies": {
         "husky": "^9.1.7",
