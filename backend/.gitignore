@@ -8,9 +8,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build output
-dist/
-build/
+
 
 # Temporary files and folders
 tmp/
