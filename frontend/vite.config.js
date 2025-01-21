@@ -11,7 +11,7 @@ exports.default = (0, vite_1.defineConfig)({
         },
     },
     build: {
-        outDir: '../backend/dist/public', // Output directly into backend/dist/public
+        outDir: '../backend/public', // Output directly into backend/dist/public
         sourcemap: true, // Enable source maps for debugging
         rollupOptions: {
             output: {

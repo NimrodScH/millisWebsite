@@ -6,7 +6,7 @@
         "npm": "11.0.0"
     },
     "scripts": {
-        "build-backend": "npm install --prefix backend && npm run build --prefix backend && npm run build --prefix frontend",
+        "build-backend": "npm install --prefix backend && npm run build --prefix backend",
         "build-and-start": "npm run build-backend && npm start --prefix backend"
             },
     "devDependencies": {

@@ -8,7 +8,7 @@ import { generateStyledEmailTemplate } from './generateEmailTemplate';
 const app = express();
 
 // Serve static files from 'dist/public'
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'../public')));
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 // Route: Serve index.html for the frontend
 app.get('/', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // API Routes (Prefixed with /api)
@@ -160,7 +160,7 @@ app.put('/api/contact', async (req: Request, res: Response) => {
 
 // Serve frontend for all undefined routes
 app.get('*', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // Start the server
