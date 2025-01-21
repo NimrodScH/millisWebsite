@@ -6,13 +6,17 @@
         "npm": "11.0.0"
     },
     "scripts": {
-  "build-backend": "npm install --prefix backend && npm run build --prefix backend",
-  "build-and-start": "npm run build-backend && npm start --prefix backend"
-            },
+        "build-backend": "npm install --prefix backend && npm run build --prefix backend",
+        "build-and-start": "npm run build-backend && npm start --prefix backend"
+    },
 
-    
+    "dependencies": {
+        "typescript": "^5.7.3"
+      },
+
     "devDependencies": {
         "husky": "^9.1.7",
-        "require-so-slow": "^2.0.5"
+        "require-so-slow": "^2.0.5",
+        "typescript": "^5.7.3"
     }
 }
