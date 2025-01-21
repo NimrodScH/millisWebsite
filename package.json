@@ -7,6 +7,11 @@
     },
     "scripts": {
         "start": "npm start --prefix backend",
+        "build": "npm run build --prefix backend && npm run build --prefix frontend"
+    },
+
+    "dependencies": {
+        "tsc":"5.7.2"
     },
     "devDependencies": {
         "husky": "^9.1.7",
