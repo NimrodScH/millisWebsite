@@ -352,15 +352,96 @@
 
 /* Mobile-Specific Styles */
 @media (max-width: 767px) {
+  .project-card-text-hover {
+    position: absolute; /* Keep the text over the image */
+    min-height: 255px; /* Allow the text to take its natural height */
+    background-color: rgba(255, 255, 255, 0.9); /* Ensure the overlay background is visible */
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  }
 
+  .project-card-text-hover:hover{
+    z-index: 1;
+    opacity: 1;
+  }
 
 
 }
 
 @media (max-width: 767px) {
+.project-card-read-more-container-hovering {
+  flex: 1;
+  width: 100%;
+  max-height: 5vh;
+  cursor: pointer;
+  display: flex;
+  z-index: 1;
+  transition: 0.3s;
+  align-items: flex-end;
+  padding-left: 20px;
+  flex-direction: row;
+  padding-bottom: 5px;
+  justify-content: flex-end;
+  background-color: #FF8C42;
+}
 
 
 
+
+.project-card-project-card:hover .project-card-read-more-container-hovering {
+  opacity: 1; /* Show overlay on hover */
+  height: 100%;
+}
+
+.project-card-project-card .project-card-read-more-container{
+  opacity: 0;
+  height: 100%;
+}
+
+.project-card-image {
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  z-index: 1;
+  opacity: 1;
+}
+.project-card-image:hover {
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  z-index: 1;
+  opacity: 1;
+}
+
+.project-card-image:hover .project-card-read-more-container-hovering {
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  z-index: 1;
+  opacity: 0;
+}
 
 
 .project-card-image-inpage{
