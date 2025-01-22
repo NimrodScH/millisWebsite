@@ -379,13 +379,15 @@
 .project-card-read-more-container-hovering {
   flex: 1;
   width: 100%;
-  max-height: 4vh;
+  max-height: 5vh;
   cursor: pointer;
   display: flex;
   z-index: 1;
   transition: 0.3s;
-  align-items: center;
+  align-items: flex-end;
+  padding-left: 20px;
   flex-direction: row;
+  padding-bottom: 5px;
   justify-content: flex-end;
   background-color: #FF8C42;
 }
@@ -396,7 +398,6 @@
 .project-card-project-card:hover .project-card-read-more-container-hovering {
   opacity: 1; /* Show overlay on hover */
   height: 100%;
-  z-index: 1;
 }
 
 .project-card-image {
