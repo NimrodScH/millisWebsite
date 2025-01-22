@@ -364,11 +364,11 @@
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
   }
 
   .project-card-text-hover:hover{
-    z-index: 2;
+    z-index: 1;
     opacity: 1;
   }
 
@@ -382,7 +382,7 @@
   max-height: 4vh;
   cursor: pointer;
   display: flex;
-  z-index: 2;
+  z-index: 1;
   transition: 0.3s;
   align-items: center;
   flex-direction: row;
