@@ -400,6 +400,11 @@
   height: 100%;
 }
 
+.project-card-project-card .project-card-read-more-container-hovering{
+  opacity: 0;
+  height: 100%;
+}
+
 .project-card-image {
   right: 0px;
   width: 100%;
