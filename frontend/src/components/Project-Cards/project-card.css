@@ -382,7 +382,6 @@
   max-height: 5vh;
   cursor: pointer;
   display: flex;
-  z-index: 1;
   transition: 0.3s;
   align-items: flex-end;
   padding-left: 20px;
