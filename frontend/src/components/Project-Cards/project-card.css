@@ -523,6 +523,73 @@
     object-fit: cover;
     z-index: 1;
     opacity: 1; /* Always visible */
+  }
+
+  /* The white background and text overlay */
+  .project-card-text-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 2; /* Above the image */
+  }
+
+  /* Show the overlay (white background + text) on hover */
+  .project-card-project-card:hover .project-card-text-hover {
+    opacity: 1; /* Make the overlay visible */
+  }
+
+  /* The orange "Read More" container */
+  .project-card-read-more-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 138, 66, 0.6); /* Orange with some transparency */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 20px;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 3; /* Above the white background */
+  }
+
+  /* Show the "Read More" container on hover */
+  .project-card-project-card:hover .project-card-read-more-container {
+    opacity: 1;
+  }
+
+  /* Ensure the image is always visible, even with hover states */
+  .project-card-project-card:hover .project-card-image {
+    opacity: 1; /* Always visible */
+    z-index: 1; /* Below the white background and text */
+  }
+}
+/* Mobile-Specific Styles */
+@media (max-width: 767px) {
+  .project-card-project-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ensure the image is always visible */
+  .project-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 1; /* Always visible */
     pointer-events: none; /* Prevent disappearing when scrolling */
   }
 
