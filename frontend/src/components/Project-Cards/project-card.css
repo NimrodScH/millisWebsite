@@ -364,7 +364,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   }
 
   .project-card-text-hover:hover{
@@ -389,6 +389,7 @@
   padding-bottom: 5px;
   justify-content: flex-end;
   background-color: #FF8C42;
+  z-index: 2;
 }
 
 
@@ -397,6 +398,7 @@
 .project-card-project-card:hover .project-card-read-more-container-hovering {
   opacity: 1; /* Show overlay on hover */
   height: 100%;
+  z-index: 2;
 }
 
 .project-card-project-card .project-card-read-more-container{
@@ -423,7 +425,7 @@
   object-fit: cover;
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
-  opacity: 0;
+  z-index: 1;
 }
 
 .project-card-image:hover .project-card-read-more-container-hovering {
@@ -435,8 +437,7 @@
   object-fit: cover;
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
-  z-index: 1;
-  opacity: 1;
+  z-index: 2;
 }
 
 
