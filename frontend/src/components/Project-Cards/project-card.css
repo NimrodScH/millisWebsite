@@ -422,12 +422,25 @@
   width: 100%;
   bottom: 0px;
   height: 100%;
-  position: relative;
+  position: absolute;
   object-fit: cover;
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   z-index: 1;
   opacity: 1;
+}
+
+.project-card-image:hover .project-card-read-more-container {
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  z-index: 1;
+  opacity: 0;
 }
 
 
