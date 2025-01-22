@@ -415,7 +415,6 @@
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   z-index: 1;
-  opacity: 1;
 }
 .project-card-image:hover {
   right: 0px;
@@ -427,7 +426,6 @@
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   z-index: 1;
-  opacity: 1;
 }
 
 .project-card-image-container-home {
