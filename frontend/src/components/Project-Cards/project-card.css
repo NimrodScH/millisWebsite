@@ -396,7 +396,6 @@
 
 
 .project-card-project-card:hover .project-card-read-more-container-hovering {
-  opacity: 1; /* Show overlay on hover */
   height: 100%;
 }
 
@@ -430,18 +429,7 @@
   opacity: 1;
 }
 
-.project-card-image:hover .project-card-read-more-container-hovering {
-  right: 0px;
-  width: 100%;
-  bottom: 0px;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  border-top-right-radius: 5%;
-  border-top-left-radius: 5%;
-  z-index: 1;
-  opacity: 0;
-}
+
 
 
 .project-card-image-inpage{
