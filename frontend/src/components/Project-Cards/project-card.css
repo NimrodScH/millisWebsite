@@ -423,6 +423,7 @@
   object-fit: cover;
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
+  opacity: 1;
 }
 
 .project-card-image:hover .project-card-read-more-container-hovering {
