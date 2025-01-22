@@ -523,6 +523,7 @@
     object-fit: cover;
     z-index: 1;
     opacity: 1; /* Always visible */
+    pointer-events: none; /* Prevent disappearing when scrolling */
   }
 
   /* The white background and text overlay */
@@ -567,10 +568,21 @@
     opacity: 1;
   }
 
+  /* Reset to default state when clicking outside */
+  .project-card-project-card:not(:hover) .project-card-read-more-container,
+  .project-card-project-card:not(:hover) .project-card-text-hover {
+    opacity: 0;
+  }
+
   /* Ensure the image is always visible, even with hover states */
   .project-card-project-card:hover .project-card-image {
     opacity: 1; /* Always visible */
     z-index: 1; /* Below the white background and text */
+  }
+
+  /* Fix image visibility during scroll */
+  .project-card-project-card:active .project-card-image {
+    opacity: 1;
   }
 }
 
