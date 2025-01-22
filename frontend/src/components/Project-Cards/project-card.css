@@ -352,13 +352,52 @@
 
 /* Mobile-Specific Styles */
 @media (max-width: 767px) {
-  .project-card-image-container,
-  .project-card-image-inpage {
-    will-change: transform, opacity;
-    backface-visibility: hidden; /* Prevent flickering */
-    transform: translate3d(0, 0, 0); /* Enable GPU acceleration */
-    position: relative; /* Ensure position consistency */
-  }
+
+
+
+}
+
+@media (max-width: 767px) {
+
+
+
+
+
+.project-card-image-inpage{
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  z-index: 1;
+}
+.project-card-image-inpage:hover {
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  z-index: 1;
+  opacity: 1;
+}
+}
+
+
+
+.project-card-image-container,
+.project-card-image-inpage {
+  will-change: transform, opacity;
+  backface-visibility: hidden; /* Prevent flickering */
+  transform: translate3d(0, 0, 0); /* Enable GPU acceleration */
+  position: relative; /* Ensure position consistency */
+}
+
 /* Ensure the initial hidden state for mobile */
 .project-card-read-more-container,
 .project-card-text-hover {
@@ -398,41 +437,3 @@
     pointer-events: none;
   }
 }
-  
-
-
-}
-
-@media (max-width: 767px) {
-
-
-
-
-
-.project-card-image-inpage{
-  right: 0px;
-  width: 100%;
-  bottom: 0px;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  border-top-right-radius: 5%;
-  border-top-left-radius: 5%;
-  z-index: 1;
-}
-.project-card-image-inpage:hover {
-  right: 0px;
-  width: 100%;
-  bottom: 0px;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  border-top-right-radius: 5%;
-  border-top-left-radius: 5%;
-  z-index: 1;
-  opacity: 1;
-}
-}
-
-
-
