@@ -23,7 +23,7 @@ const ProjectCard = (props: {
     <div
       className={`project-card-project-card${
         location.pathname === "/articles" || location.pathname === "/projects"
-          ? ""
+          ? "-pointer"
           : ""
       } ${props.customClass || ""}`}
       onMouseEnter={() => setMouseHover(true)}
