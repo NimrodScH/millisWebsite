@@ -136,7 +136,6 @@
   margin-bottom: var(--dl-space-space-unit);
   flex-direction: column;
   justify-content: flex-end; /* Adjust as necessary */
-  opacity: 1;
 }
 
 
