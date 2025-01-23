@@ -72,14 +72,6 @@
   cursor: pointer;
 }
 
-
-
-.project-card-project-card:hover .project-card-text-hover {
-  opacity: 1; /* Show overlay on hover */
-  height: 100%;
-  z-index: 1;
-}
-
 .project-card-project-card-pointer {
   display: flex;
   position: relative;
@@ -89,14 +81,18 @@
   cursor: pointer;
 }
 
+.project-card-project-card:hover .project-card-text-hover {
+  opacity: 1;
+  height: 100%;
+  z-index: 1;
+}
+
 @media (min-width: 991px){
 .project-card-project-card-pointer:hover {
-  transform: scale(1.02); /* Slight zoom effect */
+  transform: scale(1.02);
   z-index: 2;
 }
 }
-
-
 
 .project-card-image-container {
   width: 100%;
@@ -105,10 +101,10 @@
   position: relative;
   min-width: 255px;
   min-height: 255px;
-  align-items: center; /* Center child elements horizontally */
+  align-items: center;
   margin-bottom: var(--dl-space-space-unit);
   flex-direction: column;
-  justify-content: flex-end; /* Adjust as necessary */
+  justify-content: flex-end;
 }
 
 .project-card-image-container-home {
@@ -118,10 +114,10 @@
   position: relative;
   min-width: 255px;
   min-height: 255px;
-  align-items: center; /* Center child elements horizontally */
+  align-items: center;
   margin-bottom: var(--dl-space-space-unit);
   flex-direction: column;
-  justify-content: flex-end; /* Adjust as necessary */
+  justify-content: flex-end;
   opacity: 1;
 }
 
@@ -132,13 +128,11 @@
   position: relative;
   min-width: 255px;
   min-height: 255px;
-  align-items: center; /* Center child elements horizontally */
+  align-items: center;
   margin-bottom: var(--dl-space-space-unit);
   flex-direction: column;
-  justify-content: flex-end; /* Adjust as necessary */
+  justify-content: flex-end;
 }
-
-
 
 .project-card-image-container-selected {
   border: 3px solid #333;
@@ -157,8 +151,8 @@
   object-fit: cover;
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
-  z-index: 0;
 }
+
 .project-card-image-inpage {
   right: 0px;
   width: 100%;
@@ -232,8 +226,8 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.1;
-  text-align: center; /* Centers text horizontally */
-  width: 100%; /* Ensures text spans the full container width */
+  text-align: center;
+  width: 100%;
 }
 
 .project-card-last-name {
@@ -243,7 +237,7 @@
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: var(--dl-space-space-halfunit);
-  text-align: center; /* Center text if needed */
+  text-align: center;
   width: 100%;
 }
 
@@ -251,7 +245,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  text-align: center; /* Center smaller text as well */
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -262,19 +256,19 @@
 }
 
 .project-card-text-desktop {
-  font-size: 16px; /* Slightly larger text for readability */
-  font-weight: 500; /* Medium font weight for emphasis */
-  line-height: 1.5; /* Better spacing between lines */
-  direction: rtl; /* Ensures right-to-left text alignment for Hebrew */
-  text-align: right; /* Aligns text to the right */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  direction: rtl;
+  text-align: right;
   display: flex;
-  flex-direction: column; /* Stack child elements vertically */
-  justify-content: flex-start; /* Align content at the top */
-  align-items: flex-start; /* Align items to the start (right in RTL) */
-  padding: 1rem; /* Add consistent spacing around the text */
-  color: #333; /* Neutral dark color for better readability */
-  width: 100%; /* Ensure the text spans the container */
-  box-sizing: border-box; /* Include padding in width/height calculation */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .project-card-text-default {
@@ -292,33 +286,6 @@
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
-  .project-title,
-  .project-subtitle,
-  .project-cards-heading {
-    font-size: 1.5rem;
-  }
-
-  .project-description {
-    font-size: 1rem;
-  }
-}
-
-@media(min-width: 991px){
-.project-card-wide {
-  grid-column: span 2; /* Spans two columns */
-}
-
-/* Specific Card: Spanning Two Squares Vertically */
-.project-card-tall {
-  grid-row: span 2; /* Spans two rows */
-}
-
-
-}
-
-
-
 .project-card-project-card {
   position: relative;
   overflow: hidden;
@@ -326,8 +293,8 @@
 }
 
 .project-card-project-card:hover {
-  transform: scale(1.02); /* Slight zoom effect */
-  z-index: 2; /* Ensures it appears above other elements */
+  transform: scale(1.02);
+  z-index: 2;
 }
 
 .project-card-text-hover {
@@ -338,22 +305,16 @@
   max-height: 255px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.9); /* Overlay effect */
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-
 .project-card-first-name,
 .project-card-last-name {
-  z-index: 1; /* Ensure names stay above overlay */
+  z-index: 1;
 }
-
-
-
-
 
 @media(max-width: 768px){
 .project-card-image-inpage{
@@ -381,5 +342,45 @@
 }
 }
 
+@media (max-width: 768px) {
+  .project-title,
+  .project-subtitle,
+  .project-cards-heading {
+    font-size: 1.5rem;
+  }
 
+  .project-description {
+    font-size: 1rem;
+  }
 
+  .project-card-image-container-home {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .project-card-image-container-home:hover {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .project-card-read-more-container {
+    opacity: 0;
+  }
+
+  .project-card-read-more-container-hovering {
+    opacity: 1;
+    align-items: center;
+    justify-content: flex-end;
+    max-height: 2.5rem;
+  }
+}
+
+@media(min-width: 991px){
+.project-card-wide {
+  grid-column: span 2;
+}
+
+.project-card-tall {
+  grid-row: span 2;
+}
+}
