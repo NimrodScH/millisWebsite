@@ -45,7 +45,7 @@ const ProjectCard = (props: {
               className="project-card-image"
             />
 
-            <div className="project-card-text-desktop">
+            <div className="project-card-text-hover">
               <div className="project-card-text">{props.text}</div>
             </div>
 
