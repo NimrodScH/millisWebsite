@@ -312,6 +312,10 @@
 .project-card-tall {
   grid-row: span 2; /* Spans two rows */
 }
+
+.project-card-image-unhovered{
+  
+}
 }
 
 
