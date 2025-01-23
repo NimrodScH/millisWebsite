@@ -34,7 +34,7 @@ const ProjectCard = (props: {
         className={
           location.pathname === "/projects"
             ? "project-card-image-container"
-            : "project-card-image-container-home"
+            : "project-card-image-container"
         }
       >
         {isMouseHover && location.pathname === "/" ? (
