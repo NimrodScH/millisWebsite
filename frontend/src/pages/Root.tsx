@@ -2,15 +2,39 @@ import NavigationPages from "../components/Navigation/Navigation";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import RootHeadline from "./RootHeadline";
+import { useState, useEffect } from "react";
+import VideoPlayer from "../components/Video";
 
 function RootLayout() {
   const location = useLocation();
+  const [isLoading, setisLoading] = useState(false);
+  const [isContent, SetIsContent] = useState(true)
+
+
+  useEffect(() => {
+    const hasSeenVideo = sessionStorage.getItem("hasSeenVideo");
+    if (!hasSeenVideo && location.pathname==="/") {
+      setisLoading(true)
+      SetIsContent(false);
+      sessionStorage.setItem("hasSeenVideo", "true"); 
+      setTimeout(() => {
+        setisLoading(false)
+        SetIsContent(true);
+      },7000);
+    }
+ }, [location.pathname])
+
 
   const navigationProps =
     location.pathname !== "/"
       ? { path: "/", btn: "לעמוד הבית" }
       : { path: "/contact", btn: "צור קשר" };
 
+if(isLoading){
+  return <VideoPlayer/>
+}
+
+if(isContent && sessionStorage.getItem("hasSeenVideo")){
   return (
     <>
       <div className="home-container1">
@@ -91,8 +115,11 @@ function RootLayout() {
       </div>
 
       <Footer />
+     
     </>
+    
   );
+}
 }
 
 export default RootLayout;

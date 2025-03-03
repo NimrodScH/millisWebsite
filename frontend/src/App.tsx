@@ -8,7 +8,6 @@ import QAPage from "./pages/QA";
 import Articles from "./pages/Articles";
 import ArticleTemplate from "./pages/Article";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 const router = createBrowserRouter([
   {
     element: (
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
       </>
     ),
     children: [
-      { path: "/", element: <HomePage />},
+      { path: "/",  element: <HomePage />},
       { path: "/contact", element: <Contact />},
       { path: "/projects", element: <Projects />},
       { path: "/about", element: <AboutPage />},

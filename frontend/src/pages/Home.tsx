@@ -4,6 +4,7 @@ import "../views/home.css";
 import NumbersCard from "../components/Numbers-Card/Numbers-Card";
 import ProjectCard from "../components/Project-Cards/Project-Card";
 import AboutArticle from "../components/Articles/AboutArticle";
+import VideoPlayer from "../components/Video";
 import { fetchHomeNumberCards } from "../http";
 
 function HomePage() {
