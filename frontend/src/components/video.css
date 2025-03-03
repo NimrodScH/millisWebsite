@@ -8,7 +8,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        min-width:100%;
+        min-width:100dvw;
         height: 100dvh; /* Device viewport height to avoid shrinking */
         display: flex;
         align-items: center;
