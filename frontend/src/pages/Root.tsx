@@ -20,7 +20,7 @@ function RootLayout() {
       setTimeout(() => {
         setisLoading(false)
         SetIsContent(true);
-      },7000);
+      },4500);
     }
  }, [location.pathname])
 
