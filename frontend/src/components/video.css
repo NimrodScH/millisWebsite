@@ -7,7 +7,7 @@
     left: 0;
     width: auto;
     height: auto; /* Small Viewport Height (more accurate on mobile) */
-    display: flex;
+    display: fixed;
     align-items: center;
     justify-content: center;
     z-index: 9999;
