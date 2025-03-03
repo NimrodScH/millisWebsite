@@ -9,25 +9,24 @@
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 100dvh; /* Ensures full height even with Safari’s dynamic UI */
         display: flex;
         align-items: center;
         justify-content: center;
+        background: black;
         z-index: 9999;
         overflow: hidden;
       }
       
       .video {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: auto;
-        height: 100vh; /* Ensures full height */
-        min-width: 100vw; /* Ensures full width */
-        transform: translate(-50%, -50%); /* Centers video perfectly */
+        width: 100vw;
+        height: 100dvh; /* Ensures the video covers full height */
+        min-height: 100dvh; /* Forces it to always extend */
         object-fit: cover;
-        object-position: center;
+        object-position: center; /* Ensures it stays centered */
       }
+      
       
     }
 
