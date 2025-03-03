@@ -3,15 +3,29 @@
 @media (max-width: 991px){
     .video-container{
         position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh; /* Ensures it fully covers the device viewport */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  overflow: hidden;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh; /* Device Viewport Height ensures full coverage */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        overflow: hidden;
+    }
+    }
+
+    
+@media (max-width: 991px){
+    .video{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100dvh;
+        transform: translate(-50%, -50%); /* Moves the video exactly to the center */
+        object-fit: cover;
+        object-position: center;
     }
     }
 
