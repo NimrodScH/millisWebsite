@@ -8,13 +8,12 @@
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
         width: 100vw;
-        height: 100dvh; /* Device viewport height (fixes iOS Safari shrinking issues) */
+        height: 100dvh; /* Device viewport height to avoid shrinking */
         display: flex;
         align-items: center;
         justify-content: center;
+        background: black; /* Prevents any background gaps */
         z-index: 9999;
         overflow: hidden;
       }
@@ -22,11 +21,11 @@
       .video {
         position: absolute;
         width: 100vw;
-        height: 100dvh;
+        height: auto; /* Maintain aspect ratio */
+        min-height: 100dvh; /* Ensures it covers the full screen */
         object-fit: cover;
-        object-position: center center; /* Ensures proper centering */
+        object-position: center center;
       }
-      
     }
 
 .video{
