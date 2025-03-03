@@ -1,6 +1,14 @@
 @media (max-width: 991px){
 .video{
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh; /* Device viewport height to avoid UI shrinking issues */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
 }
 }
 
