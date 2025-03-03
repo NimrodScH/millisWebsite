@@ -8,12 +8,11 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100dvw;
         height: 100dvh; /* Device viewport height to avoid shrinking */
         display: flex;
         align-items: center;
         justify-content: center;
-        background: black; /* Prevents any background gaps */
         z-index: 9999;
         overflow: hidden;
       }
