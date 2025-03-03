@@ -1,12 +1,12 @@
 @media (max-width: 991px){
 .video{
     position: fixed;
-    top: 0%;
+    top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    width: 100vw;
-    height: 100svh; /* Small Viewport Height (more accurate on mobile) */
+    width: auto;
+    height: auto; /* Small Viewport Height (more accurate on mobile) */
     display: flex;
     align-items: center;
     justify-content: center;
