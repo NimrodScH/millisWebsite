@@ -23,7 +23,7 @@
         left: 100%;
         width: 100vw;
         height: 100dvh;
-        transform: translate(-50%, -50%); /* Moves the video exactly to the center */
+        transform: translate(-100%, -100%); /* Moves the video exactly to the center */
         object-fit: cover;
         object-position: center;
     }
