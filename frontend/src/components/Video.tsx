@@ -14,8 +14,8 @@ if(window.innerWidth <941){
 
   if(window.innerWidth >941){
     return (
-      <video playsInline autoPlay muted>
-        <source src="Hexagon Sketch Logo_1080p.mp4" type="video/mp4" className="video" /> 
+      <video playsInline autoPlay muted className="video">
+        <source src="Hexagon Sketch Logo_1080p.mp4" type="video/mp4" /> 
         Your browser does not support the video tag.
       </video>
     );
