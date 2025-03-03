@@ -1,9 +1,6 @@
 @media (max-width: 991px){
 .video{
-    height: 100svh;
-    width: 100svw;
     object-fit: cover;
-    object-position: center;
     z-index: 9999;
     position: absolute;
   top: 0;
