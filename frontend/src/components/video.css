@@ -18,7 +18,7 @@
       }
       
       .video {
-        position: absolute;
+        position: fixed;
         width: 100vw;
         height: 100dvh; /* Ensures the video covers full height */
         min-height: 100dvh; /* Forces it to always extend */
