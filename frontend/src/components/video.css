@@ -16,7 +16,7 @@
       }
       
       .video {
-        position: fixed;
+        position: static;
         width: 100dvw;
         min-width: 100dvw;
         height: 100dvh; /* Ensures the video covers full height */
@@ -27,6 +27,10 @@
       
       
     }
+
+    .video-container {
+ 
+      }
 
 .video{
     height: 100vh;
