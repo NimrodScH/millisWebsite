@@ -1,13 +1,6 @@
 @media (max-width: 991px){
 .video{
-    position: absolute;
-    object-fit: cover;
-    object-position: center;
-    display: center;
-    bottom: 50;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+
 }
 }
 
