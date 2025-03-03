@@ -1,15 +1,15 @@
 @media (max-width: 991px){
 .video{
-    position: fixed; /* Ensures full-screen behavior */
-    top: 0;
+    position: fixed;
+    top: 50%;
     left: 0;
     width: 100vw;
-    height: 100svh; /* Small viewport height for better mobile support */
+    height: 100svh; /* Small Viewport Height (more accurate on mobile) */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: black; /* Prevents unwanted background gaps */
     z-index: 9999;
+    transform: translateY(-50%);
 }
 }
 
