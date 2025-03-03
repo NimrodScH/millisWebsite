@@ -8,8 +8,8 @@
         position: fixed;
         top: 0;
         left: 0;
-        width:100dvw;
-        height: 100dvh; /* Device viewport height to avoid shrinking */
+        width: 100vw;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -19,13 +19,16 @@
       
       .video {
         position: absolute;
+        top: 50%;
+        left: 50%;
         width: auto;
-        min-width: 100dvw;
-        height: auto; /* Maintain aspect ratio */
-        min-height: 100dvh; /* Ensures it covers the full screen */
+        height: 100vh; /* Ensures full height */
+        min-width: 100vw; /* Ensures full width */
+        transform: translate(-50%, -50%); /* Centers video perfectly */
         object-fit: cover;
-        object-position: center center;
+        object-position: center;
       }
+      
     }
 
 .video{
