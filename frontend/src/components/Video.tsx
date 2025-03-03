@@ -3,7 +3,7 @@ import "./video.css"
 
 const VideoPlayer = () => {
   return (
-    <video autoPlay muted className="video-container video">
+    <video playsInline autoPlay muted className="video-container video">
       <source src="Hexagon Sketch Logo_1080p (1).mp4" type="video/mp4" /> 
      
       Your browser does not support the video tag.

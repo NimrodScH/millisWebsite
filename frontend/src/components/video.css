@@ -1,4 +1,32 @@
 
+
+
+
+    
+@media (max-width: 991px){
+    .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh; /* Device viewport height (fixes iOS Safari shrinking issues) */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        overflow: hidden;
+      }
+      
+      .video {
+        position: absolute;
+        width: 100vw;
+        height: 100dvh;
+        object-fit: cover;
+        object-position: center center; /* Ensures proper centering */
+      }
+      
+    }
+
 .video{
     height: 100vh;
     width: 100vw;
