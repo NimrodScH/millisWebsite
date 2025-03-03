@@ -19,7 +19,7 @@
       
       .video {
         position: absolute;
-        width: 100vw;
+        min-width: 100vw;
         height: auto; /* Maintain aspect ratio */
         min-height: 100dvh; /* Ensures it covers the full screen */
         object-fit: cover;
