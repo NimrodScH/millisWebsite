@@ -19,8 +19,8 @@
 @media (max-width: 991px){
     .video{
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 100%;
+        left: 100%;
         width: 100vw;
         height: 100dvh;
         transform: translate(-50%, -50%); /* Moves the video exactly to the center */
