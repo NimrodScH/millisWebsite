@@ -8,7 +8,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        min-width:100dvw;
+        width:100dvw;
         height: 100dvh; /* Device viewport height to avoid shrinking */
         display: flex;
         align-items: center;
@@ -19,7 +19,8 @@
       
       .video {
         position: absolute;
-        min-width: 100vw;
+        width: auto;
+        min-width: 100dvw;
         height: auto; /* Maintain aspect ratio */
         min-height: 100dvh; /* Ensures it covers the full screen */
         object-fit: cover;
