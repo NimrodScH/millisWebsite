@@ -19,7 +19,8 @@
       
       .video {
         position: fixed;
-        width: 100vw;
+        width: 100dvw;
+        min-width: 100dvw;
         height: 100dvh; /* Ensures the video covers full height */
         min-height: 100dvh; /* Forces it to always extend */
         object-fit: cover;
