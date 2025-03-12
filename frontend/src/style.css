@@ -102,6 +102,19 @@
   padding-bottom: var(--dl-space-space-fiveunits);
 }
 
+@media(max-width:767px){
+  .section-container-number-cards {
+    flex: 0 0 auto;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: var(--dl-space-space-threeunits);
+    flex-direction: column;
+    padding-bottom: 7rem;
+  }
+}
+
 .section-container-footer {
   flex: 0 0 auto;
   width: 100%;
@@ -257,9 +270,18 @@
   text-transform: uppercase;
   text-decoration: none;
 }
+
+.Heading2Contact {
+  font-size: 2.5rem;
+  font-family: Noto Sans Hebrew;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
  
 .Content {
-  font-size: 16px;
+  font-size: 1rem;
   font-family: Noto Sans Hebrew;
   font-weight: 400;
   line-height: 1.5;
@@ -277,9 +299,7 @@
   text-decoration: none;
 }
 
-@media(max-width: 767px){
-.Heading1 {
-  margin-top: 6rem;
+.Heading1Contact {
   font-size: 2.75rem;
   font-style: normal;
   font-family: Noto Sans Hebrew;
@@ -287,6 +307,30 @@
   line-height: 1.1;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+@media(max-width: 767px){
+.Heading1 {
+  margin-top: 6rem;
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-style: normal;
+  font-family: Noto Sans Hebrew;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.Heading2{
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-family: "Noto Sans Hebrew", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 }
  
@@ -342,3 +386,4 @@
   min-height: 100vh;
  }
 }
+
