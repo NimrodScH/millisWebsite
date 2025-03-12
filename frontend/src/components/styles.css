@@ -1,0 +1,132 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.scene {
+  width: 300px; /* Adjust width to fit ProjectCard */
+  height: 350px; /* Adjust height to fit ProjectCard */
+  perspective: 1000px;
+  position: relative;
+}
+
+.scene .carousel.keen-slider {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  position: absolute;
+  transform: translateZ(-288px);
+  transform-style: preserve-3d;
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 280px; /* Match ProjectCard width */
+  left: 10px;
+  height: 350px; /* Match ProjectCard height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel__cell_img {
+  position: absolute;
+  width: 280px; /* Match ProjectCard width */
+  left: 10px;
+  height: 300px; /* Match ProjectCard height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect like ProjectCard */
+.carousel__cell:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ProjectCard Image */
+.carousel__image {
+  width: 100%;
+  height: 200px; /* Adjust to fit */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+}
+
+.carousel__image_img {
+  width: 100%;
+  height: 300px; /* Adjust to fit */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* ProjectCard Content */
+.carousel__content {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Button inside carousel (if needed) */
+.carousel__button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.carousel__button:hover {
+  background-color: #0056b3;
+}
+
+.project-image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-navigation-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px; /* מרווח בין הקרוסלה לחצים */
+  width: 100%;
+}
+
+.slider-navigation {
+  display: flex;
+  gap: 15px;
+}
+
+.arrow {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}

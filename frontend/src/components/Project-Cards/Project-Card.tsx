@@ -4,8 +4,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const ProjectCard = (props: {
-  imageAlt: string;
+  imageAlt?: string;
   imageSrc: string;
+  images?: string[];
+  cards?:[];
   hintLabel: "קרא עוד";
   projectName: string;
   cityName: string;

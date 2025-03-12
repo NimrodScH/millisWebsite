@@ -1,29 +1,32 @@
 import { useState, useEffect } from "react";
-import { fetchProjects } from "../http";
+import { fetchProjects, fetchHomeNumberCards } from "../http";
 import "../views/home.css";
 import NumbersCard from "../components/Numbers-Card/Numbers-Card";
 import ProjectCard from "../components/Project-Cards/Project-Card";
 import AboutArticle from "../components/Articles/AboutArticle";
-import VideoPlayer from "../components/Video";
-import { fetchHomeNumberCards } from "../http";
+import MobileSlider from "../components/EmblaCarousel";
 
 function HomePage() {
   const [isFetching, setIsFetching] = useState(false);
   const [projects, setProjects] = useState<any[]>([]);
   const [numbersCards, setNumbersCards] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 941);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 941);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     async function fetchPlaces() {
       setIsFetching(true);
       try {
-        console.log("Fetching projects...");
         const cards = await fetchProjects();
-        console.log("Fetched projects:", cards);
         setProjects(cards);
       } catch (error) {
         setError("לא ניתן להראות את הפרוייקטים כרגע, אנא נסה שוב במועד מאוחר");
-        setIsFetching(false);
       } finally {
         setIsFetching(false);
       }
@@ -61,21 +64,25 @@ function HomePage() {
           {error && <p className="error-message">{error}</p>}
 
           <div className="home-speakers-container">
-            {projects.map((card, index) => (
-              <ProjectCard
-                key={index}
-                imageAlt={card.firstName}
-                imageSrc={card.imageSrc}
-                hintLabel="קרא עוד"
-                projectName={card.firstName}
-                cityName={card.lastName}
-                text={card.preText}
-                isMouseHover={true}
-                isClicked={false}
-                index={index}
-                customClass={card.customClass}
-              />
-            ))}
+            {isMobile ? (
+              <MobileSlider projects={projects} />
+            ) : (
+              projects.map((card, index) => (
+                <ProjectCard
+                  key={index}
+                  imageAlt={card.firstName}
+                  imageSrc={card.imageSrc}
+                  hintLabel="קרא עוד"
+                  projectName={card.firstName}
+                  cityName={card.lastName}
+                  text={card.preText}
+                  isMouseHover={true}
+                  isClicked={false}
+                  index={index}
+                  customClass={card.customClass}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
