@@ -149,7 +149,10 @@ function Projects() {
         <div style={{marginBottom:"1.5rem"}}>
         <RootHeadline firstH1="פרויקטים מובילים" secondH1="תכנון. חדשנות. איכות." />
         </div>
+        <div style={{marginBottom:"10rem"}}>
           <MobileSlider projects={projects} />
+
+          </div>
         
       </>
     );
