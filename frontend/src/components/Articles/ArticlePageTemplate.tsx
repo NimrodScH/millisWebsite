@@ -16,7 +16,8 @@ const ArticlePageTemplate = (props: {
   return (
     <div className="article-container ">
       <div className="max-w-3xl mx-auto rounded-lg p-6 ">
-        <RootHeadline firstH1={props.headline1} secondH1={props.headline2} />
+        {window.innerWidth<941 && <div className="mt-8" ></div>}
+        <RootHeadline firstH1={props.headline1} secondH1={props.headline2} firstClassName="home-text10 Heading1Contact" secondClassName="contact-text12 Heading2Contact" subtitleClassName="home-text14"  />
         <div className="flex items-center text-sm text-gray-500 mt-4 mb-6 border-b-2 border-black-200 pb-2">
           <span className="mr-4 flex items-center">
             <span className="text-orange-500 font-semibold">

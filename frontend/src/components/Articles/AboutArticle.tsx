@@ -1,20 +1,34 @@
 import RootHeadline from "../../pages/RootHeadline";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+
+
+  
 
 const AboutArticle = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 941);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 941);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
   return (
     <div className="home-workshops">
       <div className="home-content-container3">
         <div className="home-container7">
-          <RootHeadline
+         {!isMobile ?  <RootHeadline
             firstH1="נדלן סנטר כותב:"
             secondH1="הפנים מאחורי ההתחדשות העירונית"
-            firstSubtitle={
-              window.innerWidth > 941
-                ? "עם האדריכלית מילי בן עזרא"
-                : "נדלן סנטר מראיין את מילי:"
-            }
-          ></RootHeadline>
+            firstSubtitle= "עם האדריכלית מילי בן עזרא"
+          ></RootHeadline> : <RootHeadline
+          firstH1=""
+            secondH1=""
+            firstSubtitle= "נדלן סנטר מראיין את מילי:"
+            ></RootHeadline> }
           <span className="home-text53">
             "האדריכלית מילי בן עזרא מספרת על הדרך שלה בתחום ההתחדשות העירונית,
             על האתגרים הבירוקרטיים ועל פרויקטים שהיא גאה בהם במיוחד, כמו רחוב
