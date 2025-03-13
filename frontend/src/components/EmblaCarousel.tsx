@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { useEffect, useState, useImperativeHandle } from "react";
+import { useEffect } from "react";
 import ProjectCard from "./Project-Cards/Project-Card"; // Importing ProjectCard component
 
 const carousel: KeenSliderPlugin = (slider) => {
