@@ -21,34 +21,44 @@ const carousel: KeenSliderPlugin = (slider) => {
   }
 
   function startRotation() {
-    if ((slider as any).interval) return; // Prevent multiple intervals
+    if ((slider as any).interval) return; // למנוע התחלה כפולה
     console.log("🔥 Rotation started!");
-
+  
     (slider as any).isRotating = true;
-    (slider as any).userStoppedRotation = false; // Reset manual stop flag
-    (slider as any).interval = setInterval(() => {
+    (slider as any).userStoppedRotation = false;
+  
+    function step() {
+      if (!(slider as any).isRotating) return; // עצירה אם המשתמש ביקש
+  
       angle -= 0.2;
       rotate();
-    }, 20);
+  
+      (slider as any).interval = requestAnimationFrame(step);
+    }
+  
+    (slider as any).interval = requestAnimationFrame(step);
   }
+  
 
   function stopRotation() {
     if ((slider as any).interval) {
       console.log("🛑 Rotation stopped!");
-      clearInterval((slider as any).interval);
+      cancelAnimationFrame((slider as any).interval);
       (slider as any).interval = null;
       (slider as any).isRotating = false;
-      (slider as any).userStoppedRotation = true; // Mark that user explicitly stopped rotation
+      (slider as any).userStoppedRotation = true;
     }
   }
+  
 
-  function toggleRotation() {
-    if ((slider as any).isRotating) {
-      stopRotation();
-    } else {
-      startRotation();
-    }
-  }
+  // function toggleRotation() {
+  //   if ((slider as any).isRotating) {
+  //     stopRotation();
+  //   }
+  //    else {
+  //     startRotation();
+  //   }
+  // }
 
   function startDragging() {
     console.log("🖱 Dragging started - Rotation paused");
@@ -68,11 +78,18 @@ const carousel: KeenSliderPlugin = (slider) => {
   }
 
   function onDetailsChanged() {
-    if ((slider as any).isBeingDragged || (slider as any).isNavigating) {
-      angle = slider.track.details.progress * 360;
-      rotate();
+    if(!(slider as any).isRotating){
+       angle = 360 * slider.track.details.progress
+    slider.container.style.transform = `translateZ(-${z}px) rotateY(${-angle}deg)`
     }
+    //requestAnimationFrame(rotate);
   }
+  
+  
+  
+
+  
+  
   
 
   slider.on("created", () => {
@@ -91,9 +108,11 @@ const carousel: KeenSliderPlugin = (slider) => {
   slider.on("detailsChanged", onDetailsChanged);
 
   // **🔥 Attach functions to slider instance**
-  (slider as any).toggleRotation = toggleRotation;
+  //(slider as any).toggleRotation = toggleRotation;
   (slider as any).startRotation = startRotation; // ✅ Now startRotation is accessible
   (slider as any).stopRotation = stopRotation; // ✅ Now stopRotation is accessible
+  (slider as any).startDragging = startDragging; // ✅ Now startRotation is accessible
+  (slider as any).stopDragging = stopDragging; // ✅ Now stopRotation is accessible
 
   slider.on("destroyed", stopRotation);
 };
@@ -137,17 +156,19 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
     [carousel]
   ) 
 
-  useEffect(() => {
-    if (!slider.current) return;
-    const interval = setInterval(() => {
-      slider.current?.next();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [slider]);
+  // useEffect(() => {
+  //   if (!slider.current) return;
+  //   const interval = setInterval(() => {
+  //     slider.current?.next();
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [slider]);
 
   const [rotating, setRotation] = useState(true);
+  const [ dragging, setDragging] = useState(false);
 
   const clickHandler = () => {
+    if(!dragging){
     setRotation((prev) => {
       if (prev) {
         slider.current && (slider.current as any).stopRotation();
@@ -159,7 +180,29 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
         return true;
       }
     });
+  }
   };
+
+  const dragHandler = () => {
+    if(rotating){
+    setDragging((prev) => {
+      if(prev){
+        setRotation(() => {
+          slider.current && (slider.current as any).stopRotation();
+          return false;
+        });
+        return false;
+      }else {
+        setRotation(() => {
+          slider.current && (slider.current as any).startRotation();
+          return true;
+        });
+        return true
+      }
+    });
+  }
+  };
+
   
   
 
@@ -168,11 +211,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
     <>
     <div className="wrapper">
       <div className="scene">
-        <div className="carousel keen-slider" ref={sliderRef}>
+        <div className="carousel keen-slider" ref={sliderRef} >
       
           {/* Manually placing ProjectCard components inside the structure */}
           {projects ? (
-          <div className="carousel__cell number-slide1" onClick={clickHandler}> 
+          <div className="carousel__cell number-slide1" onClick={clickHandler} onPointerDown={dragHandler}> 
           <ProjectCard 
   imageAlt={projects[0]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[0]?.imageSrc || "fallback-image.jpg"} 
@@ -186,12 +229,12 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   customClass={projects[0]?.customClass || ""} 
   onCardClick={projects[0]?.onCardClick} 
 />  
-          </div>) : images ? (<div className="carousel__cell_img number-slide1" onClick={clickHandler}>
+          </div>) : images ? (<div className="carousel__cell_img number-slide1" onClick={clickHandler} onPointerDown={dragHandler}>
               <img src={images[0] || "fallback-image.jpg"} alt="Slide 1" className="carousel__image_img" />
             </div>) : null
           }
           {projects ? (
-          <div className="carousel__cell number-slide2" onClick={clickHandler}>
+          <div className="carousel__cell number-slide2" onClick={clickHandler} onPointerDown={dragHandler}>
           <ProjectCard 
   imageAlt={projects[1]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[1]?.imageSrc || "fallback-image.jpg"} 
@@ -209,7 +252,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
             </div>) : null}
 
 {projects ? (
-          <div className="carousel__cell number-slide3" onClick={clickHandler}>
+          <div className="carousel__cell number-slide3" onClick={clickHandler} onPointerDown={dragHandler}>
           <ProjectCard 
   imageAlt={projects[2]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[2]?.imageSrc || "fallback-image.jpg"} 
@@ -227,7 +270,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
             </div>): null}
 
 {projects ? (
-          <div className="carousel__cell number-slide4" onClick={clickHandler}>
+          <div className="carousel__cell number-slide4" onClick={clickHandler} onPointerDown={dragHandler}>
           <ProjectCard 
   imageAlt={projects[3]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[3]?.imageSrc || "fallback-image.jpg"} 
@@ -245,7 +288,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
             </div>) : null}
 
 {projects ? (
-          <div className="carousel__cell number-slide5"   onClick={clickHandler}>
+          <div className="carousel__cell number-slide5"   onClick={clickHandler} onPointerDown={dragHandler}>
           <ProjectCard 
   imageAlt={projects[4]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[4]?.imageSrc || "fallback-image.jpg"} 
@@ -263,7 +306,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
             </div>): null }
 
 {projects ? (
-          <div className="carousel__cell number-slide6"  onClick={clickHandler}>
+          <div className="carousel__cell number-slide6"  onClick={clickHandler} onPointerDown={dragHandler}>
           <ProjectCard 
   imageAlt={projects[5]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[5]?.imageSrc || "fallback-image.jpg"} 
@@ -281,7 +324,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
             </div>): null}
 
 {projects ? (
-          <div className="carousel__cell number-slide7"   onClick={clickHandler}>
+          <div className="carousel__cell number-slide7"   onClick={clickHandler} onPointerDown={dragHandler}>
           <ProjectCard 
   imageAlt={projects[6]?.firstName || "תמונה לא זמינה"} 
   imageSrc={projects[6]?.imageSrc || "fallback-image.jpg"} 
@@ -307,11 +350,13 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   className="arrow left"
   onClick={() => {
     if (slider.current) {
-      (slider.current as any).isNavigating = true; // ✅ Mark navigation state
-      slider.current.moveToIdx(slider.current.track.details.abs - 1);
+      (slider.current as any).isNavigating = true;
+      const totalSlides = slider.current.track.details.length; // ✅ Get the total number of slides
+      const newIdx = (slider.current.track.details.abs - 1 + totalSlides) % totalSlides; // ✅ Wrap around correctly
+      slider.current.next();
       setTimeout(() => {
-        (slider.current as any).isNavigating = false; // ✅ Reset state after move
-      }, 500); // Adjust timing if needed
+        (slider.current as any).isNavigating = false;
+      }, 500);
     }
   }}
 >
@@ -322,16 +367,20 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   className="arrow right"
   onClick={() => {
     if (slider.current) {
-      (slider.current as any).isNavigating = true; // ✅ Mark navigation state
-      slider.current.moveToIdx(slider.current.track.details.abs + 1);
+      (slider.current as any).isNavigating = true;
+      const totalSlides = slider.current.track.details.length; // ✅ Get the total number of slides
+      const newIdx = (slider.current.track.details.abs + 1) % totalSlides; // ✅ Wrap around correctly
+      slider.current.prev();
       setTimeout(() => {
-        (slider.current as any).isNavigating = false; // ✅ Reset state after move
-      }, 500); // Adjust timing if needed
+        (slider.current as any).isNavigating = false;
+      }, 500);
     }
   }}
 >
 ◄
 </button>
+
+
 
         </div>
       </div>
