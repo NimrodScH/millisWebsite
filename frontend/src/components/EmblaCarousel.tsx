@@ -6,117 +6,20 @@ import { useEffect } from "react";
 import ProjectCard from "./Project-Cards/Project-Card"; // Importing ProjectCard component
 
 const carousel: KeenSliderPlugin = (slider) => {
-  const z = 300;
-  let angle = 0;
-
-  // Ensure properties exist on slider instance
-  if (!(slider as any).interval) (slider as any).interval = null;
-  if (!(slider as any).isRotating) (slider as any).isRotating = true;
-  if (!(slider as any).userStoppedRotation) (slider as any).userStoppedRotation = false;
-  if (!(slider as any).isBeingDragged) (slider as any).isBeingDragged = false;
-
+  const z = 300
   function rotate() {
-    if (!slider.track.details) return;
-    slider.container.style.transform = `translateZ(-${z}px) rotateY(${-angle}deg)`;
+    const deg = 360 * slider.track.details.progress
+    slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`
   }
-
-  function startRotation() {
-    if ((slider as any).interval) return; // למנוע התחלה כפולה
-    console.log("🔥 Rotation started!");
-  
-    (slider as any).isRotating = true;
-    (slider as any).userStoppedRotation = false;
-  
-    function step() {
-      if (!(slider as any).isRotating) return; // עצירה אם המשתמש ביקש
-  
-      angle -= 0.2;
-      rotate();
-  
-      (slider as any).interval = requestAnimationFrame(step);
-    }
-  
-    (slider as any).interval = requestAnimationFrame(step);
-  }
-  
-
-  function stopRotation() {
-    if ((slider as any).interval) {
-      console.log("🛑 Rotation stopped!");
-      cancelAnimationFrame((slider as any).interval);
-      (slider as any).interval = null;
-      (slider as any).isRotating = false;
-      (slider as any).userStoppedRotation = true;
-    }
-  }
-  
-
-  // function toggleRotation() {
-  //   if ((slider as any).isRotating) {
-  //     stopRotation();
-  //   }
-  //    else {
-  //     startRotation();
-  //   }
-  // }
-
-  function startDragging() {
-    console.log("🖱 Dragging started - Rotation paused");
-    (slider as any).isBeingDragged = true;
-    stopRotation();
-  }
-
-  function stopDragging() {
-    console.log("🖱 Dragging ended");
-
-    if (!(slider as any).userStoppedRotation) {
-      console.log("🔄 Resuming rotation after dragging");
-      startRotation();
-    }
-
-    (slider as any).isBeingDragged = false;
-  }
-
-  function onDetailsChanged() {
-    if(!(slider as any).isRotating){
-       angle = 360 * slider.track.details.progress
-    slider.container.style.transform = `translateZ(-${z}px) rotateY(${-angle}deg)`
-    }
-    //requestAnimationFrame(rotate);
-  }
-  
-  
-  
-
-  
-  
-  
-
   slider.on("created", () => {
-    console.log("🚀 Carousel initialized!");
-    const degStep = 360 / slider.slides.length;
+    const deg = 360 / slider.slides.length
     slider.slides.forEach((element, idx) => {
-      element.style.transform = `rotateY(${degStep * idx}deg) translateZ(${z}px)`;
-    });
-
-    rotate();
-    startRotation();
-  });
-
-  slider.on("dragStarted", startDragging);
-  slider.on("dragEnded", stopDragging);
-  slider.on("detailsChanged", onDetailsChanged);
-
-  // **🔥 Attach functions to slider instance**
-  //(slider as any).toggleRotation = toggleRotation;
-  (slider as any).startRotation = startRotation; // ✅ Now startRotation is accessible
-  (slider as any).stopRotation = stopRotation; // ✅ Now stopRotation is accessible
-  (slider as any).startDragging = startDragging; // ✅ Now startRotation is accessible
-  (slider as any).stopDragging = stopDragging; // ✅ Now stopRotation is accessible
-
-  slider.on("destroyed", stopRotation);
-};
-
+      element.style.transform = `rotateY(${deg * idx}deg) translateZ(${z}px)`
+    })
+    rotate()
+  })
+  slider.on("detailsChanged", rotate)
+}
 
 
 
@@ -145,65 +48,71 @@ type MobileSliderProps = {
   images?: string[];
 };
 
-const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => { 
+const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
+  //const [isPaused, setIsPaused] = React.useState(false); 
+  const [rotating, setRotation] = useState(true);
+  const animation = { duration: 15000, easing: (t: number) => t }
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
       selector: `.carousel__cell${images ? "_img":""}`,
       renderMode: "custom",
       mode: "free-snap",
+      drag: true,
     },
     [carousel]
   ) 
 
-  // useEffect(() => {
-  //   if (!slider.current) return;
-  //   const interval = setInterval(() => {
-  //     slider.current?.next();
-  //   }, 3000);
-  //   return () => clearInterval(interval);
-  // }, [slider]);
 
-  const [rotating, setRotation] = useState(true);
-  const [ dragging, setDragging] = useState(false);
+  useEffect(() => {
+    if (!slider.current) return;
 
+    if (rotating) {
+      slider.current.moveToIdx(slider.current.track.details.abs + 5, true, animation);
+      if(slider.current.animator.active){
+      slider.current.update({ loop: true }); 
+      }
+      setRotation(true);
+    } else {
+      slider.current.animator.stop(); // Stop animation immediately
+      setRotation(false);
+    }
+  }, [rotating, slider]);
+
+  // 🎯 Click to toggle rotation
   const clickHandler = () => {
-    if(!dragging){
-    setRotation((prev) => {
-      if (prev) {
-        slider.current && (slider.current as any).stopRotation();
-        console.log("🛑 Rotation stopped");
-        return false;
-      } else {
-        slider.current && (slider.current as any).startRotation();
-        console.log("🔥 Rotation started");
+    setRotation(() => {
+      if (!rotating && slider.current) {
+        // If it was stopped, start animation immediately
+        slider.current.moveToIdx(slider.current.track.details.abs + 5, true, animation);
         return true;
+      } else {
+        return false; // Toggle rotating state
       }
     });
-  }
   };
+  
 
   const dragHandler = () => {
-    if(rotating){
-    setDragging((prev) => {
-      if(prev){
-        setRotation(() => {
-          slider.current && (slider.current as any).stopRotation();
-          return false;
-        });
-        return false;
-      }else {
-        setRotation(() => {
-          slider.current && (slider.current as any).startRotation();
-          return true;
-        });
-        return true
-      }
-    });
-  }
+  //   if(rotating){
+  //   setDragging((prev) => {
+  //     if(prev){
+  //       setRotation(() => {
+  //         slider.current && (slider.current as any).stopRotation();
+  //         return false;
+  //       });
+  //       return false;
+  //     }else {
+  //       setRotation(() => {
+  //         slider.current && (slider.current as any).startRotation();
+  //         return true;
+  //       });
+  //       return true
+  //     }
+  //   });
+  // }
   };
 
-  
   
 
 
