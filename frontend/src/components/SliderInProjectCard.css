@@ -4,7 +4,7 @@
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
-    max-width: 600px;
+    max-width: 17rem;
     margin: auto;
   }
   
@@ -27,19 +27,19 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     fill: #000;
     cursor: pointer;
     z-index: 10;
   }
   
   .arrowNew--left {
-    left: 10px;
+    left: 0.8rem;
   }
   
   .arrowNew--right {
-    right: 10px;
+    right: 0.8rem;
   }
   
   .arrowNew--disabled {
@@ -55,8 +55,8 @@
   }
   
   .dot {
-    width: 12px;
-    height: 12px;
+    width: 0.6rem;
+    height: 0.6rem;
     border-radius: 50%;
     background: #234;
     border: none;

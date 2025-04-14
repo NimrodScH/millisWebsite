@@ -36,10 +36,6 @@
     font-size: 1.2rem;
     cursor: pointer;
   }
-  
-  .result-modal button:hover {
-    background: #051715;
-  }
 
   .result-modal img{
     aspect-ratio: 1 / 1;       /* Keeps it square */
