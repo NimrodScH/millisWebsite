@@ -1,0 +1,78 @@
+.result-modal {
+    border: none;
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: #ffffff;
+  }
+  
+  .result-modal[open] {
+    animation: slide-in-from-top 0.35s ease-out;
+  }
+  
+  .result-modal::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .result-modal h2 {
+    margin: 1rem 5rem 2rem 0rem;
+  }
+  .result-modal p {
+    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+    padding-right: 1rem;
+  }
+  
+  
+  .result-modal form {
+    text-align: right;
+  }
+  
+  .result-modal-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #12352f;
+    color: #edfcfa;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .result-modal button:hover {
+    background: #051715;
+  }
+
+  .result-modal img{
+    aspect-ratio: 1 / 1;       /* Keeps it square */
+    object-fit: cover;         /* Crops excess and fills the box */
+    object-position: center;   /* Focus on the center of the image */
+    display: block;
+    border-radius: 0.5rem;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem; 
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+
+  .result-modal[dir="rtl"] .close-button {
+    right: 1rem;
+    right: auto;
+  }
+  
+  .result-modal[dir="ltr"] .close-button {
+    left: 1rem;
+    left: auto;
+  }
+  
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }

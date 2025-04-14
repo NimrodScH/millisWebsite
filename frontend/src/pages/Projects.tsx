@@ -6,6 +6,7 @@ import { fetchProjects } from "../http";
 import MobileSlider from "../components/EmblaCarousel";
 import BackgroundParticles from "../components/BackgroundParticles";
 import RootHeadline from "./RootHeadline";
+import SliderInProjectCard from "../components/SliderInProjectCard";
 
 function Projects() {
   const location = useLocation();
@@ -71,6 +72,8 @@ function Projects() {
 
   if (!isMobile) {
     return (
+      <>
+      <BackgroundParticles />
       <div className="projects-page-container">
         {activeCardIndex !== null && projects[activeCardIndex] && (
           <div id="active" className="project-content">
@@ -141,6 +144,7 @@ function Projects() {
           </div>
         </div>
       </div>
+      </>
     );
   } else {
     return (

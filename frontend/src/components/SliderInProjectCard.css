@@ -1,0 +1,70 @@
+
+
+.navigation-wrapper {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .keen-slider__slide {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide-img {
+    width: 100%; /* ← this was missing */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  
+  
+  .arrowNew {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    fill: #000;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .arrowNew--left {
+    left: 10px;
+  }
+  
+  .arrowNew--right {
+    right: 10px;
+  }
+  
+  .arrowNew--disabled {
+    fill: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #234;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background: #000;
+  }
+  
