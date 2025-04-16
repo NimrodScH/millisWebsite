@@ -92,11 +92,12 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   // 🎯 Click to toggle rotation
   const clickHandler = () => {
     setRotation(() => {
-      if (!rotating && slider.current) {
-        return true;
-      } else {
-        return false;
-      }
+      // if (!rotating && slider.current) {
+      //   return true;
+      // } else {
+      //   return false;
+      // }
+      return false;
     });
   };
 
