@@ -140,7 +140,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide1"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(0);
                 }}
@@ -177,7 +177,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide2"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(1);
                 }}
@@ -212,7 +212,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide3"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(2);
                 }}
@@ -246,7 +246,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide4"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(3);
                 }}
@@ -280,7 +280,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide5"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(4);
                 }}
@@ -314,7 +314,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide6"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(5);
                 }}
@@ -348,7 +348,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide7"
                 onClick={() => {
-                  (location.pathname !== "/projects" && clickHandler())
+                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
                   setOpen(true);
                   setIndex(6);
                 }}
