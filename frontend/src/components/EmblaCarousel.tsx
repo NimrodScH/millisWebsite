@@ -122,6 +122,13 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   const [index, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
   return (
     <>
+    {isOpen && projects && (
+  <ProjectPopUp
+    open={isOpen}
+    onClose={() => setOpen(false)}
+    project={projects[index]}
+  />
+)}
       <div className="wrapper">
         <div className="scene">
           <div className="carousel keen-slider" ref={sliderRef}>
@@ -174,7 +181,6 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 onPointerDown={dragHandler}
                 
               >
-                {isOpen && <ProjectPopUp open={isOpen} onClose={() => setOpen(false)} project={projects[index]}/>}
                 <ProjectCard
                   imageAlt={projects[1]?.firstName || "תמונה לא זמינה"}
                   imageSrc={projects[1]?.imageSrc || "fallback-image.jpg"}

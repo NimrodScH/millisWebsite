@@ -19,18 +19,7 @@ const ProjectCard = (props: {
   onCardClick?: () => void;
 }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isMouseHover, setMouseHover] = useState(false);
-
-  const handleReadMoreClick = () => {
-    navigate("/projects#active", {
-      state: {
-        activeCardIndex: props.index,
-        isOpen: true,
-        index: props.index,
-      },
-    });
-  };
 
   return (
     <div
@@ -62,14 +51,14 @@ const ProjectCard = (props: {
               <div className="project-card-text">{props.text}</div>
             </div>
 
-            <div
-  className="project-card-read-more-container-hovering"
-  onClick={handleReadMoreClick}
->
-  <span className="project-card-hint">{props.hintLabel}</span>
-  <img src="left arrow.png" className="project-card-icon1" />
-</div>
-
+            <HashLink
+              to={"/projects#active"}
+              state={{ activeCardIndex: props.index, isOpen: true, index: props.index }}
+              className="project-card-read-more-container-hovering"
+            >
+              <span className="project-card-hint">{props.hintLabel}</span>
+              <img src="left arrow.png" className="project-card-icon1" />
+            </HashLink>
           </>
         ) : (
           <>
