@@ -42,9 +42,10 @@ type MobileSliderProps = {
   projects?: ProjectType[];
   images?: string[];
   open?: boolean;
+  activeIndex?: number;
 };
 
-const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open }) => {
+const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, activeIndex }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
   const [rotating, setRotation] = useState(true);
   const [isOpen, setOpen] = useState(false);
@@ -119,6 +120,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open }) =
   };
 
   const [index, setIndex] = useState(0);
+
+  if(open && activeIndex){
+    setIndex(activeIndex);
+    setOpen(true);
+  }
 
   return (
     <>
