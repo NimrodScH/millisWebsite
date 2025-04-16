@@ -48,7 +48,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
   const location = useLocation()
   const [rotating, setRotation] = useState(true);
-  const [isOpen, setOpen] = useState<boolean | false> (location.state?.isOpen?? false);
+  const [isOpen, setOpen] = useState<boolean>(location.state?.isOpen ?? false);
   const animation = { duration: 15000, easing: (t: number) => t };
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>(
     {
@@ -119,8 +119,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
     // }
   };
 
-  const [index, setIndex] = useState<number | 0> (location.state?.index ?? 0);
-
+  const [index, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
   return (
     <>
       <div className="wrapper">
