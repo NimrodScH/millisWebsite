@@ -146,6 +146,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                  slider.current.track.details.abs + 5,
+                  true,
+                  animation
+                ))}}
               >
                 <ProjectCard
                   imageAlt={projects[0]?.firstName || "תמונה לא זמינה"}
@@ -184,7 +189,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                  slider.current.track.details.abs + 5,
+                  true,
+                  animation
+                ))}}
               >
                 <ProjectCard
                   imageAlt={projects[1]?.firstName || "תמונה לא זמינה"}
@@ -220,7 +229,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                  slider.current.track.details.abs + 5,
+                  true,
+                  animation
+                ))}}
               >
                 <ProjectCard
                   imageAlt={projects[2]?.firstName || "תמונה לא זמינה"}
@@ -256,7 +269,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                  slider.current.track.details.abs + 5,
+                  true,
+                  animation
+                ))}}
               >
                 <ProjectCard
                   imageAlt={projects[3]?.firstName || "תמונה לא זמינה"}
@@ -292,7 +309,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                  slider.current.track.details.abs + 5,
+                  true,
+                  animation
+                ))}}
               >
                 <ProjectCard
                   imageAlt={projects[4]?.firstName || "תמונה לא זמינה"}
@@ -328,7 +349,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                  slider.current.track.details.abs + 5,
+                  true,
+                  animation
+                ))}}
               >
                 <ProjectCard
                   imageAlt={projects[5]?.firstName || "תמונה לא זמינה"}
@@ -364,7 +389,11 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                 }}
                 onPointerDown={dragHandler}
                 onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-
+                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
+                         slider.current.track.details.abs + 5,
+                         true,
+                         animation
+                       ))}}
               >
                 <ProjectCard
                   imageAlt={projects[6]?.firstName || "תמונה לא זמינה"}
