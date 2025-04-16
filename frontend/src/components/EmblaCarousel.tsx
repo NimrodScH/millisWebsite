@@ -145,6 +145,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(0);
                 }}
                 onPointerDown={dragHandler}
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
               >
                 <ProjectCard
                   imageAlt={projects[0]?.firstName || "תמונה לא זמינה"}
@@ -182,7 +183,8 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(1);
                 }}
                 onPointerDown={dragHandler}
-                
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+
               >
                 <ProjectCard
                   imageAlt={projects[1]?.firstName || "תמונה לא זמינה"}
@@ -217,6 +219,8 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(2);
                 }}
                 onPointerDown={dragHandler}
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+
               >
                 <ProjectCard
                   imageAlt={projects[2]?.firstName || "תמונה לא זמינה"}
@@ -251,6 +255,8 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(3);
                 }}
                 onPointerDown={dragHandler}
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+
               >
                 <ProjectCard
                   imageAlt={projects[3]?.firstName || "תמונה לא זמינה"}
@@ -285,6 +291,8 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(4);
                 }}
                 onPointerDown={dragHandler}
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+
               >
                 <ProjectCard
                   imageAlt={projects[4]?.firstName || "תמונה לא זמינה"}
@@ -319,6 +327,8 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(5);
                 }}
                 onPointerDown={dragHandler}
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+
               >
                 <ProjectCard
                   imageAlt={projects[5]?.firstName || "תמונה לא זמינה"}
@@ -353,6 +363,8 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
                   setIndex(6);
                 }}
                 onPointerDown={dragHandler}
+                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
+
               >
                 <ProjectCard
                   imageAlt={projects[6]?.firstName || "תמונה לא זמינה"}
