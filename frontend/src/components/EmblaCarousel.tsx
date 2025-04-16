@@ -42,11 +42,9 @@ type ProjectType = {
 type MobileSliderProps = {
   projects?: ProjectType[];
   images?: string[];
-  open?: boolean;
-  activeIndex?: number;
 };
 
-const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, activeIndex }) => {
+const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
   const location = useLocation()
   const [rotating, setRotation] = useState(true);
@@ -121,7 +119,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, act
     // }
   };
 
-  const [index, setIndex] = useState<number | 0> (location.state?.activeCardIndex ?? 0);
+  const [index, setIndex] = useState<number | 0> (location.state?.index ?? 0);
 
   return (
     <>
