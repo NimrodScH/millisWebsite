@@ -75,9 +75,9 @@ function Projects() {
     return (
       <>
       <BackgroundParticles />
-      <div className="projects-page-container">
+      <div id="active" className="projects-page-container">
         {activeCardIndex !== null && projects[activeCardIndex] && (
-          <div id="active" className="project-content">
+          <div  className="project-content">
             {/* 🔹 טקסט */}
             <div className="project-text-section">
               <h1 className="project-title">
