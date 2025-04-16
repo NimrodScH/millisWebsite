@@ -119,14 +119,14 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
     // }
   };
 
-  const [index, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
+  const [activeCardIndex, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
   return (
     <>
     {isOpen && projects && (
   <ProjectPopUp
     open={isOpen}
     onClose={() => setOpen(false)}
-    project={projects[index]}
+    project={projects[activeCardIndex]}
   />
 )}
       <div className="wrapper">
