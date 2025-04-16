@@ -9,6 +9,7 @@ import "keen-slider/keen-slider.min.css";
 import { useEffect } from "react";
 import ProjectCard from "./Project-Cards/Project-Card"; // Importing ProjectCard component
 import ProjectPopUp from "./ProjectPopUp";
+import { useLocation } from "react-router-dom";
 
 const carousel: KeenSliderPlugin = (slider) => {
   const z = 300;
@@ -47,8 +48,9 @@ type MobileSliderProps = {
 
 const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, activeIndex }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
+  const location = useLocation()
   const [rotating, setRotation] = useState(true);
-  const [isOpen, setOpen] = useState(open ? open : false);
+  const [isOpen, setOpen] = useState<boolean | false> (location.state?.open ?? false);
   const animation = { duration: 15000, easing: (t: number) => t };
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>(
     {
@@ -119,7 +121,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, act
     // }
   };
 
-  const [index, setIndex] = useState(activeIndex ? activeIndex : 0);
+  const [index, setIndex] = useState<number | 0> (location.state?.activeIndex ?? 0);
 
   return (
     <>
