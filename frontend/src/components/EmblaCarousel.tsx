@@ -126,7 +126,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   <ProjectPopUp
     open={isOpen}
     onClose={() => setOpen(false)}
-    project={projects[activeCardIndex]}
+    project={projects[0]}
   />
 )}
       <div className="wrapper">
