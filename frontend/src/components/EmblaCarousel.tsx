@@ -122,13 +122,14 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   const [activeCardIndex, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
   return (
     <>
-    {isOpen && projects && (
+ {isOpen && projects && projects.length > 0 && projects[activeCardIndex] && (
   <ProjectPopUp
     open={isOpen}
     onClose={() => setOpen(false)}
-    project={projects[0]}
+    project={projects[activeCardIndex]}
   />
 )}
+
       <div className="wrapper">
         <div className="scene">
           <div className="carousel keen-slider" ref={sliderRef}>
