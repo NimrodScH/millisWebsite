@@ -41,9 +41,10 @@ type ProjectType = {
 type MobileSliderProps = {
   projects?: ProjectType[];
   images?: string[];
+  open?: boolean;
 };
 
-const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
+const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
   const [rotating, setRotation] = useState(true);
   const [isOpen, setOpen] = useState(false);

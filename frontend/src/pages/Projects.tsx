@@ -6,7 +6,7 @@ import { fetchProjects } from "../http";
 import MobileSlider from "../components/EmblaCarousel";
 import BackgroundParticles from "../components/BackgroundParticles";
 import RootHeadline from "./RootHeadline";
-import SliderInProjectCard from "../components/SliderInProjectCard";
+import ProjectPopUp from "../components/ProjectPopUp";
 
 function Projects() {
   const location = useLocation();
@@ -20,6 +20,7 @@ function Projects() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 941);
   const [selectedCardIdx, setSelectedCardIdx] = useState(0);
   const sliderRef = useRef<{ next: () => void; prev: () => void } | null>(null);
+  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 941);
@@ -154,8 +155,7 @@ function Projects() {
         <RootHeadline firstH1="פרויקטים מובילים" secondH1="תכנון. חדשנות. איכות." />
         </div>
         <div style={{marginBottom:"10rem"}}>
-          <MobileSlider projects={projects} />
-
+          <MobileSlider projects={projects}  />
           </div>
         
       </>

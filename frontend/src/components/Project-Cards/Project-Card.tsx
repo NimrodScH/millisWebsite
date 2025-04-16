@@ -53,7 +53,7 @@ const ProjectCard = (props: {
 
             <HashLink
               to={"/projects#active"}
-              state={{ activeCardIndex: props.index }}
+              state={{ activeCardIndex: props.index, isOpen: true }}
               className="project-card-read-more-container-hovering"
             >
               <span className="project-card-hint">{props.hintLabel}</span>
