@@ -57,6 +57,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
       renderMode: "custom",
       mode: "free-snap",
       drag: true,
+
       created(s) {
         s.moveToIdx(5, true, animation);
       },
@@ -122,7 +123,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   const [activeCardIndex, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
   return (
     <>
- {isOpen && projects && projects.length > 0 && projects[activeCardIndex] && (
+ {isOpen && projects && projects.length > 0 && projects[activeCardIndex] && location.pathname === "/projects" && (
   <ProjectPopUp
     open={isOpen}
     onClose={() => setOpen(false)}
@@ -138,9 +139,9 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide1"
                 onClick={() => {
+                  clickHandler()
                   setOpen(true);
                   setIndex(0);
-                  clickHandler()
                 }}
                 onPointerDown={dragHandler}
               >
