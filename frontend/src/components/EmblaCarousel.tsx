@@ -75,19 +75,19 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
     [carousel]
   );
 
-  useEffect(() => {
-    if (!slider.current) return;
+  // useEffect(() => {
+  //   if (!slider.current) return;
 
-    if (rotating) {
-      slider.current.moveToIdx(
-        slider.current.track.details.abs + 5,
-        true,
-        animation
-      );
-    } else {
-      slider.current.animator.stop(); // Stop animation immediately
-    }
-  }, [rotating, slider]);
+  //   if (rotating) {
+  //     slider.current.moveToIdx(
+  //       slider.current.track.details.abs + 5,
+  //       true,
+  //       animation
+  //     );
+  //   } else {
+  //     slider.current.animator.stop(); // Stop animation immediately
+  //   }
+  // }, [rotating, slider]);
 
   // 🎯 Click to toggle rotation
   const clickHandler = () => {
