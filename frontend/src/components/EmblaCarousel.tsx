@@ -48,7 +48,7 @@ type MobileSliderProps = {
 const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, activeIndex }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
   const [rotating, setRotation] = useState(true);
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(open ? open : false);
   const animation = { duration: 15000, easing: (t: number) => t };
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>(
     {
@@ -119,12 +119,7 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images, open, act
     // }
   };
 
-  const [index, setIndex] = useState(0);
-
-  if(open && activeIndex){
-    setIndex(activeIndex);
-    setOpen(true);
-  }
+  const [index, setIndex] = useState(activeIndex ? activeIndex : 0);
 
   return (
     <>
