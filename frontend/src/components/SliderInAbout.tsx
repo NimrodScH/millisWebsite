@@ -27,7 +27,7 @@ export default function SliderInAbout({ keyPoints }: { keyPoints: KeyPoints[] })
           if (mouseOver) return
           timeout = setTimeout(() => {
             slider.next()
-          }, 2000)
+          }, 5000)
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {
@@ -68,7 +68,7 @@ export default function SliderInAbout({ keyPoints }: { keyPoints: KeyPoints[] })
               </div>
               <div
   ref={keyPoints.length > 0 ? sliderRef : null} className="keen-slider">
-  {keyPoints.map((point, idx) => (
+  {keyPoints.slice(0, 3).map((point, idx) => (
     <div className="keen-slider__slide about-slide" key={idx}>
       <div className="about-slide-content">
         <div className="about-text">
@@ -82,7 +82,27 @@ export default function SliderInAbout({ keyPoints }: { keyPoints: KeyPoints[] })
     </div>
   ))}
 </div>
-
+<div className="home-column2">
+              <div className="home-column-header2">
+                <span className="home-text41">
+                  <span>ידע וערכי המשרד</span>
+                </span>
+                <div className="home-line2"></div>
+              </div>
+              {keyPoints.slice(3, 6).map((point, idx) => (
+    <div className="keen-slider__slide about-slide" key={idx}>
+      <div className="about-slide-content">
+        <div className="about-text">
+          <h2>{point.title}</h2>
+          <p>{point.text}</p>
+        </div>
+        <div className="about-image">
+          <img src={point.imageSrc} alt={point.imageAlt} />
+        </div>
+      </div>
+    </div>
+  ))}
+            </div>
             </div>
 
           </div>
