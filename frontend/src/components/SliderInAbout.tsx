@@ -91,7 +91,7 @@ export default function SliderInAbout({ keyPoints }: { keyPoints: KeyPoints[] })
               </div>
               <div
   ref={keyPoints.length > 0 ? sliderRef : null} className="keen-slider">
-  {keyPoints.slice(0, 3).map((point, idx) => (
+  {keyPoints.slice(3, 6).map((point, idx) => (
     <div className="keen-slider__slide about-slide" key={idx}>
       <div className="about-slide-content">
         <div className="about-text">
