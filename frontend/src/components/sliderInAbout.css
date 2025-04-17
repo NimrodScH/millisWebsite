@@ -76,4 +76,58 @@
     align-items: center;
   }
   
+  .slide-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* מבנה כללי של כל שקף */
+.about-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+  }
+  
+  /* עיצוב תוכן השקף */
+  .about-slide-content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  
+  /* טקסט */
+  .about-text {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .about-text h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #0b1c36;
+    font-weight: 500;;
+  }
+  
+  .about-text p {
+    font-size: 1.2rem;
+    color: #0b1c36;
+    line-height: 1.7;
+  }
+  
+  /* תמונה */
+  .about-image {
+    flex-shrink: 0;
+  }
+  
+  .about-image img {
+    width: 100px;
+    height: auto;
+  }
   

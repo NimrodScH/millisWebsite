@@ -3,12 +3,15 @@ import KeyPoint from "../components/Key-Points/Key-Point";
 import AboutArticle from "../components/Articles/AboutArticle";
 import { useEffect, useState } from "react";
 import { fetchNumberCards, fetchKeyPoints } from "../http";
+import SliderInAbout from "../components/SliderInAbout";
 
 const AboutPage = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [numbersCards, setNumbersCards] = useState<any[]>([]);
   const [keyPoints, setKeyPoints] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 941);
+
 
   useEffect(() => {
     async function fetchNumbers() {
@@ -49,6 +52,7 @@ const AboutPage = () => {
 
   return (
     <>
+    {!isMobile && 
       <div id="head" className="home-agenda section-container">
         <div className="home-max-width4 max-content-container">
           <div className="home-heading-container3">
@@ -96,8 +100,9 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="home-numbers-banner section-container">
+      </div>}
+      {isMobile && <SliderInAbout keyPoints={keyPoints} />}
+      <div className="home-numbers-banner section-container-number-cards">
         <div className="home-container3 max-content-container">
           <div className="home-heading-container2">
             <span className="home-text20">25 שנות ניסיון והישגים</span>
