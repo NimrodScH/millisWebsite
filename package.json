@@ -9,11 +9,10 @@
         "build-backend": "npm install --prefix backend && npm run build --prefix backend",
         "build-and-start": "npm run build-backend && npm start --prefix backend"
     },
-
     "dependencies": {
+        "ai-crw": "^1.0.2",
         "typescript": "^5.7.3"
-      },
-
+    },
     "devDependencies": {
         "husky": "^9.1.7",
         "require-so-slow": "^2.0.5",
