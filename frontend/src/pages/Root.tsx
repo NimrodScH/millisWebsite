@@ -134,6 +134,6 @@ if(isContent && sessionStorage.getItem("hasSeenVideo")){
     
   );
 }
-}
+} 
 
 export default RootLayout;
