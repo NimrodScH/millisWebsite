@@ -127,7 +127,7 @@ if(isContent && sessionStorage.getItem("hasSeenVideo")){
 
         {location.pathname !== "/contact" && <Outlet />}
       </div>
-      <PopChat/>
+      <PopChat chatHeadline = {"צא'ט זמין"}/>
       <Footer />
      
     </>
