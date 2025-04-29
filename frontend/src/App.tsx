@@ -8,13 +8,11 @@ import QAPage from "./pages/QA";
 import Articles from "./pages/Articles";
 import ArticleTemplate from "./pages/Article";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { PopChat } from "ai-crw"; // Import the PopChat component
 const router = createBrowserRouter([
   {
     element: (
       <>
         <RootLayout />
-        <PopChat/>
       </>
     ),
     children: [
