@@ -40,7 +40,7 @@ useEffect(() => {
           images={project.images}              />
         }
         <form method="dialog">
-            <button className="close-button">x</button>
+            <button className="close-button-fn">x</button>
         </form>
     </dialog>
 )}

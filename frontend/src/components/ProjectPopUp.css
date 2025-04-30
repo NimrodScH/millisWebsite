@@ -45,7 +45,7 @@
     border-radius: 0.5rem;
   }
 
-  .close-button {
+  .close-button-fn {
     position: absolute;
     top: 1rem;
     right: 1rem; 
@@ -57,12 +57,12 @@
   }
   
 
-  .result-modal[dir="rtl"] .close-button {
+  .result-modal[dir="rtl"] .close-button-fn {
     right: 1rem;
     right: auto;
   }
   
-  .result-modal[dir="ltr"] .close-button {
+  .result-modal[dir="ltr"] .close-button-fn {
     left: 1rem;
     left: auto;
   }
