@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import VideoPlayer from "../components/Video";
 import CubeCarousel from "../components/Cube";
 import TextAnimation from "../components/CubeTxt";
-import { PopChat } from "ai-crw"; // Import the PopChat component
+import  PopChat  from "ai-crw"; // Import the PopChat component
 
 const textArray = [
   <RootHeadline firstH1="מילי בן עזרא"
@@ -127,7 +127,7 @@ if(isContent && sessionStorage.getItem("hasSeenVideo")){
 
         {location.pathname !== "/contact" && <Outlet />}
       </div>
-      <PopChat chatHeadline = {"צא'ט זמין"}/>
+      <PopChat />
       <Footer />
      
     </>
