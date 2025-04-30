@@ -8,6 +8,7 @@ import CubeCarousel from "../components/Cube";
 import TextAnimation from "../components/CubeTxt";
 import  PopChat  from "ai-crw"; // Import the PopChat component
 
+
 const textArray = [
   <RootHeadline firstH1="מילי בן עזרא"
                       secondH1="אדריכלות ובינוי ערים"
@@ -127,7 +128,7 @@ if(isContent && sessionStorage.getItem("hasSeenVideo")){
 
         {location.pathname !== "/contact" && <Outlet />}
       </div>
-      <PopChat direction="rtl" chatHeadline="צא'ט זמין"/>
+      <PopChat direction="rtl" chatHeadline="צא'ט זמין" />
       <Footer />
      
     </>
