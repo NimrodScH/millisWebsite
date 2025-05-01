@@ -128,7 +128,7 @@ if(isContent && sessionStorage.getItem("hasSeenVideo")){
 
         {location.pathname !== "/contact" && <Outlet />}
       </div>
-      <PopChat direction="rtl" chatHeadline="צא'ט זמין" aiCharachter ={ `You are a persuasive, friendly sales assistant embedded on a website. Your primary goal is to help users understand the benefits of the product and encourage them to make a purchase. You should:
+      <PopChat direction="rtl" chatHeadline="צא'ט זמין" aiCharacter ={ `You are a persuasive, friendly sales assistant embedded on a website. Your primary goal is to help users understand the benefits of the product and encourage them to make a purchase. You should:
 
 - Highlight the most valuable features.
 - Use emotionally engaging and benefit-driven language.
