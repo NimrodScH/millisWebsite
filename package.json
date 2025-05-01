@@ -10,7 +10,7 @@
         "build-and-start": "npm run build-backend && npm start --prefix backend"
     },
     "dependencies": {
-        "ai-crw": "^1.1.6",
+        "ai-crw": "^1.1.7",
         "typescript": "^5.7.3"
     },
     "devDependencies": {
