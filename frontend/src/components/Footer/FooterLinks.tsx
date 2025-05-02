@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "instant" }); 
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
 };
+
 
 
 const FooterLinks = () => {

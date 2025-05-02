@@ -28,8 +28,11 @@ const Articles = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "instant" }); 
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
   };
+  
 
   return (
     <>
