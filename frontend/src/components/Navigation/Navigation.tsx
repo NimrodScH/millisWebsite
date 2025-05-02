@@ -39,7 +39,7 @@ const Navigation = ({ btn, path }: { btn: string; path: string }) => {
     >
       <div className="navigation-max-width">
         <Link to="/">
-          <img alt="mili logo" src="milis logo black.png" />
+          <img alt="mili logo" src="/milis logo black.png" />
         </Link>
         <div className="navigation-nav1">
           <NavigationLinks rootClassName="navigation-linksroot-class-name17" />
@@ -55,7 +55,7 @@ const Navigation = ({ btn, path }: { btn: string; path: string }) => {
           data-role="BurgerMenu"
           className="navigation-burger-menu"
         >
-          <img src="menu.png" className="navigation-icon10"></img>
+          <img src="/menu.png" className="navigation-icon10"></img>
         </div>
       </div>
 
@@ -67,13 +67,13 @@ const Navigation = ({ btn, path }: { btn: string; path: string }) => {
       >
         <div className="navigation-nav2">
           <div className="navigation-container">
-            <img alt="mili logo" src="mili logo white (2).png" />
+            <img alt="mili logo" src="/mili logo white (2).png" />
             <div
               onClick={toggleMobile}
               data-role="CloseMobileMenu"
               className="navigation-close-mobile-menu"
             >
-              <img src="close menu.png" className="navigation-icon12"></img>
+              <img src="/close menu.png" className="navigation-icon12"></img>
             </div>
           </div>
           <NavigationLinks rootClassName="navigation-linksroot-class-name18" />
