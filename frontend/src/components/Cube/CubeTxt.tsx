@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import RootHeadline from "../pages/RootHeadline";
+import RootHeadline from "../../pages/RootHeadline";
 
 const textArray = [
-  <RootHeadline 
+  <RootHeadline
     firstH1="מילי בן עזרא"
     secondH1="אדריכלות ובינוי ערים"
     firstSubtitle="מעל 25 שנים של תכנון פרוייקטים בכל סוגי התכנון"
     secondSubtitle="בניינים משותפים, בתים פרטיים, מבני ציבור והתחדשות עירונית"
   />,
-  <RootHeadline 
+  <RootHeadline
     firstH1="יצירתיות ותכנון חכם"
     secondH1="תכנון ועיצוב מתקדם"
     firstSubtitle="פיתוח רעיונות חכמים ליצירתיות ותכנון ייחודי"
@@ -21,7 +21,7 @@ const textArray = [
     firstSubtitle="פיתוח חוויית מגורים תוך הקפדה על פונקציונליות"
     secondSubtitle="מגדלים מודרניים, בתי יוקרה, מבנים ציבוריים וחדשנות"
   />,
-  <RootHeadline 
+  <RootHeadline
     firstH1="אסתטיקה ופרקטיקה"
     secondH1="תכנון בר-קיימא ומודרני"
     firstSubtitle="שימוש בחומרי גלם ירוקים לאיכות חיים וסביבה מתקדמת"
@@ -33,21 +33,20 @@ const textArray = [
     firstSubtitle="שילוב של יופי, טכנולוגיה וקיימות למבנים חכמים"
     secondSubtitle="חללים ציבוריים, קמפוסים פרטיים, אזורי מסחר והתחדשות"
   />,
-  <RootHeadline 
+  <RootHeadline
     firstH1="פונקציונליות עיצובית"
     secondH1="תכנון ועיצוב מתקדם"
     firstSubtitle="שילוב של תכנון מוקפד עם עיצוב המותאם אישית ללקוח"
     secondSubtitle="דירות יוקרה, מבני מגורים, סביבת עבודה וחללים מעוצבים"
-  />
-];  
+  />,
+];
 
 const TextAnimation = () => {
   const [index, setIndex] = useState(0);
   const [isTabActive, setIsTabActive] = useState(true);
-  let intervalRef:any = null;
+  let intervalRef: any = null;
 
   useEffect(() => {
-    // פונקציה לבדיקת האם הטאב פעיל או לא
     const handleVisibilityChange = () => {
       setIsTabActive(!document.hidden);
     };
@@ -60,14 +59,14 @@ const TextAnimation = () => {
   }, []);
 
   useEffect(() => {
-    if (!isTabActive) return; // אם הכרטיסייה לא פעילה, לא מתחילים טיימר
+    if (!isTabActive) return;
 
     intervalRef = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % textArray.length);
-    }, 7000); // שינוי טקסט כל 7 שניות
+    }, 7000);
 
     return () => clearInterval(intervalRef);
-  }, [isTabActive]); // מתבצע מחדש רק כאשר הכרטיסייה פעילה
+  }, [isTabActive]);
 
   return (
     <AnimatePresence mode="wait">

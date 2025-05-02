@@ -4,7 +4,7 @@ import "../views/home.css";
 import NumbersCard from "../components/Numbers-Card/Numbers-Card";
 import ProjectCard from "../components/Project-Cards/Project-Card";
 import AboutArticle from "../components/Articles/AboutArticle";
-import MobileSlider from "../components/EmblaCarousel";
+import MobileSlider from "../components/RotatingSlider/RotatingSlider";
 
 function HomePage() {
   const [isFetching, setIsFetching] = useState(false);

@@ -8,7 +8,7 @@ const initialImages = [
   "unique.jpg",
   "Architect.jpg",
   "Precision.jpg",
-  "green.jpg"
+  "green.jpg",
 ];
 
 const CubeCarousel = () => {
@@ -81,7 +81,9 @@ const CubeCarousel = () => {
           className="carousel-item face-0"
           style={{
             backgroundImage: `url(${imagesArray[0]})`,
-            transform: `rotateY(0deg) translateZ(${isMobile ? "7.5rem" : "10.15vw"})`
+            transform: `rotateY(0deg) translateZ(${
+              isMobile ? "7.5rem" : "10.15vw"
+            })`,
           }}
         ></div>
 
@@ -90,7 +92,9 @@ const CubeCarousel = () => {
           className="carousel-item face-1"
           style={{
             backgroundImage: `url(${imagesArray[1]})`,
-            transform: `rotateY(90deg) translateZ(${isMobile ? "7.5rem" : "10.15vw"})`
+            transform: `rotateY(90deg) translateZ(${
+              isMobile ? "7.5rem" : "10.15vw"
+            })`,
           }}
         ></div>
 
@@ -99,7 +103,9 @@ const CubeCarousel = () => {
           className="carousel-item face-2"
           style={{
             backgroundImage: `url(${imagesArray[2]})`,
-            transform: `rotateY(180deg) translateZ(${isMobile ? "7.5rem" : "10.15vw"})`
+            transform: `rotateY(180deg) translateZ(${
+              isMobile ? "7.5rem" : "10.15vw"
+            })`,
           }}
         ></div>
 
@@ -108,7 +114,9 @@ const CubeCarousel = () => {
           className="carousel-item face-3"
           style={{
             backgroundImage: `url(${imagesArray[3]})`,
-            transform: `rotateY(-90deg) translateZ(${isMobile ? "7.5rem" : "10.15vw"})`
+            transform: `rotateY(-90deg) translateZ(${
+              isMobile ? "7.5rem" : "10.15vw"
+            })`,
           }}
         ></div>
       </motion.div>

@@ -1,18 +1,18 @@
 @media(min-width: 991px){
 .carousel-container {
-    flex: 1; /* Allows equal spacing like video container */
+    flex: 1; 
     display: flex;
-    align-items: center; /* Centers the cube properly */
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 20.3svw;
-    max-width: 20.3svw; /* Matches image & video container */
+    max-width: 20.3svw;
     max-height: 68.6svh;
-    min-height: 68.6svh; /* Ensures visibility */
+    min-height: 68.6svh;
     perspective: 1000px;
     margin-top: 5.3svh;
     margin-right: 6svw;
-    overflow: visible; /* Ensures cube is fully visible */
+    overflow: visible;
 }
 
 .carousel {
@@ -37,22 +37,22 @@
     .carousel-container {
         position: relative;
         margin: auto;
-        width: 15rem;  /* המרה מ-30vh ל-20rem */
-        height: 20rem; /* המרה מ-40vh ל-26.6rem */
-        perspective: 233rem; /* המרה מ-350svh ל-233rem */
+        width: 15rem;
+        height: 20rem;
+        perspective: 233rem;
     }
   
     .carousel {
-        width: 15rem;  /* המרה מ-30vh ל-20rem */
-        height: 20rem; /* המרה מ-40vh ל-26.6rem */
+        width: 15rem;
+        height: 20rem;
         position: relative;
         transform-style: preserve-3d;
         transform: rotateY(0deg);
     }
   
     .carousel-item {
-        width: 15rem;  /* המרה מ-30vh ל-20rem */
-        height: 20rem; /* המרה מ-40vh ל-26.6rem */
+        width: 15rem;
+        height: 20rem;
         position: absolute;
         background-size: cover;
         background-position: center;

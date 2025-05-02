@@ -3,7 +3,7 @@ import KeyPoint from "../components/Key-Points/Key-Point";
 import AboutArticle from "../components/Articles/AboutArticle";
 import { useEffect, useState } from "react";
 import { fetchNumberCards, fetchKeyPoints } from "../http";
-import SliderInAbout from "../components/SliderInAbout";
+import SliderInAbout from "../components/SliderInAbout/SliderInAbout";
 
 const AboutPage = () => {
   const [isFetching, setIsFetching] = useState(false);

@@ -3,10 +3,10 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import "../components/project-cards/project-card.css";
 import { fetchProjects } from "../http";
-import MobileSlider from "../components/EmblaCarousel";
-import BackgroundParticles from "../components/BackgroundParticles";
+import MobileSlider from "../components/RotatingSlider/RotatingSlider";
+import BackgroundParticles from "../components/Background/BackgroundParticles";
 import RootHeadline from "./RootHeadline";
-import ProjectPopUp from "../components/ProjectPopUp";
+import ProjectPopUp from "../components/ProjectPopUp/ProjectPopUp";
 
 function Projects() {
   const location = useLocation();
@@ -74,90 +74,95 @@ function Projects() {
   if (!isMobile) {
     return (
       <>
-      <BackgroundParticles />
-      <div id="active" className="projects-page-container">
-        {activeCardIndex !== null && projects[activeCardIndex] && (
-          <div  className="project-content">
-            {/* 🔹 טקסט */}
-            <div className="project-text-section">
-              <h1 className="project-title">
-                {projects[activeCardIndex]?.firstName}
-              </h1>
-              <h2 className="project-subtitle">
-                {projects[activeCardIndex]?.lastName}
-              </h2>
-              <p className="project-description">
-                {projects[activeCardIndex]?.text}
-              </p>
+        <BackgroundParticles />
+        <div id="active" className="projects-page-container">
+          {activeCardIndex !== null && projects[activeCardIndex] && (
+            <div className="project-content">
+              {/* 🔹 טקסט */}
+              <div className="project-text-section">
+                <h1 className="project-title">
+                  {projects[activeCardIndex]?.firstName}
+                </h1>
+                <h2 className="project-subtitle">
+                  {projects[activeCardIndex]?.lastName}
+                </h2>
+                <p className="project-description">
+                  {projects[activeCardIndex]?.text}
+                </p>
+              </div>
+              {/* 🔹 קרוסלה */}
+              <div className="project-image-section">
+                {console.log(
+                  "Before sending to KeenSlider:",
+                  projects[activeCardIndex]
+                )}
+
+                {projects[activeCardIndex]?.images &&
+                  Array.isArray(projects[activeCardIndex]?.images) &&
+                  (() => {
+                    const sanitizedProject = { ...projects[activeCardIndex] };
+                    delete sanitizedProject.customClass;
+                    console.log(
+                      "After deleting customClass:",
+                      sanitizedProject
+                    );
+
+                    return (
+                      <>
+                        <MobileSlider
+                          images={projects[activeCardIndex].images}
+                        />
+                      </>
+                    );
+                  })()}
+              </div>
             </div>
-            {/* 🔹 קרוסלה */}
-            <div className="project-image-section">
-              {console.log(
-                "Before sending to KeenSlider:",
-                projects[activeCardIndex]
-              )}
+          )}
 
-              {projects[activeCardIndex]?.images &&
-                Array.isArray(projects[activeCardIndex]?.images) &&
-                (() => {
-                  const sanitizedProject = { ...projects[activeCardIndex] };
-                  delete sanitizedProject.customClass;
-                  console.log("After deleting customClass:", sanitizedProject);
-
-                  return (
-                    <>
-                      <MobileSlider
-                        images={projects[activeCardIndex].images}
-                      />
-                    </>
-                  );
-                })()}
+          {/* 🔹 רשימת כרטיסי הפרויקטים */}
+          <div className="project-cards-section">
+            <div className="home-heading-container1">
+              <h1 className="home-text19 Heading2">פרוייקטים</h1>
             </div>
-          </div>
-        )}
 
-        {/* 🔹 רשימת כרטיסי הפרויקטים */}
-        <div className="project-cards-section">
-          <div className="home-heading-container1">
-            <h1 className="home-text19 Heading2">פרוייקטים</h1>
-          </div>
+            {isFetching && <p>טוען פרוייקטים...</p>}
+            {error && <p className="error-message">{error}</p>}
 
-          {isFetching && <p>טוען פרוייקטים...</p>}
-          {error && <p className="error-message">{error}</p>}
-
-          <div className="project-cards-container">
-            {projects.map((card, index) => (
-              <ProjectCard
-                key={index}
-                index={index}
-                imageAlt={card.firstName}
-                imageSrc={card.imageSrc}
-                hintLabel="קרא עוד"
-                projectName={card.firstName}
-                cityName={card.lastName}
-                isMouseHover={false}
-                text={card.text}
-                isClicked={activeCardIndex === index}
-                customClass={card.customClass} // 🔹 נשאר לכרטיסים, אבל לא נשלח לקרוסלה
-                onCardClick={() => handleCardClick(index)}
-              />
-            ))}
+            <div className="project-cards-container">
+              {projects.map((card, index) => (
+                <ProjectCard
+                  key={index}
+                  index={index}
+                  imageAlt={card.firstName}
+                  imageSrc={card.imageSrc}
+                  hintLabel="קרא עוד"
+                  projectName={card.firstName}
+                  cityName={card.lastName}
+                  isMouseHover={false}
+                  text={card.text}
+                  isClicked={activeCardIndex === index}
+                  customClass={card.customClass} // 🔹 נשאר לכרטיסים, אבל לא נשלח לקרוסלה
+                  onCardClick={() => handleCardClick(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </>
     );
   } else {
     return (
       <>
         <BackgroundParticles />
-        <div id="active" style={{marginBottom:"1.5rem"}}>
-        <RootHeadline firstH1="פרויקטים מובילים" secondH1="תכנון. חדשנות. איכות." />
+        <div id="active" style={{ marginBottom: "1.5rem" }}>
+          <RootHeadline
+            firstH1="פרויקטים מובילים"
+            secondH1="תכנון. חדשנות. איכות."
+          />
         </div>
-        <div style={{marginBottom:"10rem"}}>
-          <MobileSlider projects={projects}  />
-          </div>
-        
+        <div style={{ marginBottom: "10rem" }}>
+          <MobileSlider projects={projects} />
+        </div>
       </>
     );
   }

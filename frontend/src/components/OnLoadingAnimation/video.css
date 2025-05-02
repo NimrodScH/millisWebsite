@@ -1,9 +1,4 @@
-
-
-
-
-    
-@media (max-width: 991px){
+   @media (max-width: 991px){
     .video-container {
         position: fixed;
         top: 0;
@@ -19,10 +14,10 @@
         position: static;
         width: 100dvw;
         min-width: 100dvw;
-        height: 100dvh; /* Ensures the video covers full height */
-        min-height: 100dvh; /* Forces it to always extend */
+        height: 100dvh;
+        min-height: 100dvh; 
         object-fit: cover;
-        object-position: center; /* Ensures it stays centered */
+        object-position: center; 
       }
       
       

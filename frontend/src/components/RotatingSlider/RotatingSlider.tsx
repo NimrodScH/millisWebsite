@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import "./styles.css";
-import {
-  useKeenSlider,
-  KeenSliderPlugin,
-  AnimatorInstance,
-} from "keen-slider/react";
+import "./rotatingSlider.css";
+import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useEffect } from "react";
-import ProjectCard from "./Project-Cards/Project-Card"; // Importing ProjectCard component
-import ProjectPopUp from "./ProjectPopUp";
+import ProjectCard from "../Project-Cards/Project-Card"; // Importing ProjectCard component
+import ProjectPopUp from "../ProjectPopUp/ProjectPopUp";
 import { useLocation } from "react-router-dom";
 
 const carousel: KeenSliderPlugin = (slider) => {
@@ -46,7 +42,7 @@ type MobileSliderProps = {
 
 const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
   //const [isPaused, setIsPaused] = React.useState(false);
-  const location = useLocation()
+  const location = useLocation();
   const [rotating, setRotation] = useState(true);
   const [isOpen, setOpen] = useState<boolean>(location.state?.isOpen ?? false);
   const animation = { duration: 15000, easing: (t: number) => t };
@@ -62,14 +58,10 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
         s.moveToIdx(5, true, animation);
       },
       updated(s) {
-         
-            s.moveToIdx(s.track.details.abs + 5, true, animation);
-          
+        s.moveToIdx(s.track.details.abs + 5, true, animation);
       },
       animationEnded(s) {
-       
-            s.moveToIdx(s.track.details.abs + 5, true, animation);
-          
+        s.moveToIdx(s.track.details.abs + 5, true, animation);
       },
     },
     [carousel]
@@ -121,16 +113,22 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
     // }
   };
 
-  const [activeCardIndex, setIndex] = useState<number>(location.state?.activeCardIndex ?? 0);
+  const [activeCardIndex, setIndex] = useState<number>(
+    location.state?.activeCardIndex ?? 0
+  );
   return (
     <>
- {isOpen && projects && projects.length > 0 && projects[activeCardIndex] && location.pathname === "/projects" && (
-  <ProjectPopUp
-    open={isOpen}
-    onClose={() => setOpen(false)}
-    project={projects[activeCardIndex]}
-  />
-)}
+      {isOpen &&
+        projects &&
+        projects.length > 0 &&
+        projects[activeCardIndex] &&
+        location.pathname === "/projects" && (
+          <ProjectPopUp
+            open={isOpen}
+            onClose={() => setOpen(false)}
+            project={projects[activeCardIndex]}
+          />
+        )}
 
       <div className="wrapper">
         <div className="scene">
@@ -140,17 +138,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide1"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(0);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                  slider.current.track.details.abs + 5,
-                  true,
-                  animation
-                ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[0]?.firstName || "תמונה לא זמינה"}
@@ -183,17 +191,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide2"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(1);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                  slider.current.track.details.abs + 5,
-                  true,
-                  animation
-                ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[1]?.firstName || "תמונה לא זמינה"}
@@ -223,17 +241,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide3"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(2);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                  slider.current.track.details.abs + 5,
-                  true,
-                  animation
-                ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[2]?.firstName || "תמונה לא זמינה"}
@@ -263,17 +291,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide4"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(3);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                  slider.current.track.details.abs + 5,
-                  true,
-                  animation
-                ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[3]?.firstName || "תמונה לא זמינה"}
@@ -303,17 +341,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide5"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(4);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                  slider.current.track.details.abs + 5,
-                  true,
-                  animation
-                ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[4]?.firstName || "תמונה לא זמינה"}
@@ -343,17 +391,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide6"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(5);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                  slider.current.track.details.abs + 5,
-                  true,
-                  animation
-                ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[5]?.firstName || "תמונה לא זמינה"}
@@ -383,17 +441,27 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ projects, images }) => {
               <div
                 className="carousel__cell number-slide7"
                 onClick={() => {
-                  (location.pathname !== "/projects" && slider.current && slider.current.animator.stop())
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
                   setOpen(true);
                   setIndex(6);
                 }}
                 onPointerDown={dragHandler}
-                onMouseEnter={() => {(location.pathname !== "/projects" && slider.current && slider.current.animator.stop())}}
-                onMouseLeave={() => {(location.pathname !== "/projects" && slider.current && slider.current.moveToIdx(
-                         slider.current.track.details.abs + 5,
-                         true,
-                         animation
-                       ))}}
+                onMouseEnter={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.animator.stop();
+                }}
+                onMouseLeave={() => {
+                  location.pathname !== "/projects" &&
+                    slider.current &&
+                    slider.current.moveToIdx(
+                      slider.current.track.details.abs + 5,
+                      true,
+                      animation
+                    );
+                }}
               >
                 <ProjectCard
                   imageAlt={projects[6]?.firstName || "תמונה לא זמינה"}
