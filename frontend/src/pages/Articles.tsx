@@ -2,6 +2,7 @@ import ProjectCard from "../components/Project-Cards/Project-Card";
 import { fetchArticles } from "../http";
 import { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Articles = () => {
@@ -26,6 +27,10 @@ const Articles = () => {
     fetchAvaArticles();
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "instant" }); 
+  };
+
   return (
     <>
       <div className="home-speakers section-container">
@@ -40,8 +45,8 @@ const Articles = () => {
 
           <div className="home-speakers-container">
             {articles.map((article, index) => (
-              <HashLink
-              to={`${location.pathname}/${index}#`}>
+              <Link
+              to={`${location.pathname}/${index}#`} onClick={scrollToTop}>
               <ProjectCard
                 key={index}
                 imageAlt={article.title}
@@ -54,7 +59,7 @@ const Articles = () => {
                 isClicked={true}
                 index={index}
               />
-              </HashLink>
+              </Link>
             ))}
           </div>
         </div>
