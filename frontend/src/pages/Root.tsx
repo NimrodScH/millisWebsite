@@ -86,6 +86,9 @@ if(isContent && sessionStorage.getItem("hasSeenVideo")){
                     <RootHeadline
                       firstH1="יצירת קשר"
                       secondH1="מלאו את הפרטים ונחזור אליכם"
+                      firstClassName="home-text10 Heading1Contact"
+                      secondClassName="contact-text12 Heading2Contact"
+                      subtitleClassName="home-text14"
                     />
                   </div>
                   <Outlet />
